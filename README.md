@@ -14,7 +14,7 @@ Specify the API you are using and include a link. Show us a snippet of JSON retu
 
 [what shows on screen] (url)
 
-```JSON 
+```json 
 code snippit```
 
 
