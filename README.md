@@ -2,19 +2,75 @@
 
 ## Project Name
 
-The name of your project.
+Pokedex
 
 ## Project Description
 
-Use this section to describe your final project and perhaps any links to relevant sites that help convey the concept and\or functionality.
+This project will create a Pokedex - which is a sort of encyclopedia of different pokemon, their number, type, attributes, etc. The user will be able to select a pokemon based on their number or name (and if time allows, by type).  Then the app will display the various information on the selected pokemon. It will also have another area where the user can see more information, such as what types said pokemon would be good against and weak against in battle.
 
 ## API and Data Sample
 
 Specify the API you are using and include a link. Show us a snippet of JSON returned by your API so we know you can access it and get the info you need
 
-[what shows on screen] (url)
+Main page of API:
+[Poke API] (https://pokeapi.co/)
 
-```language at top - then code snippit```
+Code below from:
+
+[Poke API for Articuno] (https://pokeapi.co/api/v2/pokemon-species/144/)
+
+```json
+{
+base_happiness: 35,
+capture_rate: 3,
+color: {
+name: "blue",
+url: "https://pokeapi.co/api/v2/pokemon-color/2/"
+},
+egg_groups: [
+{
+name: "no-eggs",
+url: "https://pokeapi.co/api/v2/egg-group/15/"
+}
+],
+evolution_chain: {
+url: "https://pokeapi.co/api/v2/evolution-chain/73/"
+},
+evolves_from_species: null,
+flavor_text_entries: [
+{
+flavor_text: "A legendary bird POKéMON that is said to appear todoomed people who are lost in icy mountains.",
+language: {
+name: "en",
+url: "https://pokeapi.co/api/v2/language/9/"
+},
+version: {
+name: "red",
+url: "https://pokeapi.co/api/v2/version/1/"
+}
+},
+{
+flavor_text: "A legendary bird POKéMON that is said to appear todoomed people who are lost in icy mountains.",
+language: {
+name: "en",
+url: "https://pokeapi.co/api/v2/language/9/"
+},
+version: {
+name: "blue",
+url: "https://pokeapi.co/api/v2/version/2/"
+}
+},
+{
+flavor_text: "A legendary bird POKéMON. It freezes waterthat is contained in winter air and makes it snow.",
+language: {
+name: "en",
+url: "https://pokeapi.co/api/v2/language/9/"
+},
+version: {
+name: "yellow",
+url: "https://pokeapi.co/api/v2/version/3/"
+}
+},```
 
 
 ## Wireframes
