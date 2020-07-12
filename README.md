@@ -87,18 +87,19 @@ My wireframe can be found at: https://wireframe.cc/9XrkTJ
 
 ## Priority Matrix
 
-[Link to matrix:] (https://i.imgur.com/dRo8X5Z.png)
+My matrix can be foundn at: https://i.imgur.com/dRo8X5Z.png
 
 ## Timeframes
 
-Tell us how long you anticipate spending on each area of development. Be sure to consider how many hours a day you plan to be coding and how many days you have available until presentation day.
-
-Time frames are also key in the development cycle.  You have limited time to code all phases of the game.  Your estimates can then be used to evalute game possibilities based on time needed and the actual time you have before game must be submitted. It's always best to pad the time by a few hours so that you account for the unknown so add and additional hour or two to each component to play it safe. Throughout your project, keep track of your Time Invested and Actual Time and update your README regularly.
-
 | Component | Priority | Estimated Time | Time Invested | Actual Time |
 | --- | :---: |  :---: | :---: | :---: |
-| Adding Form | H | 3hrs| 3.5hrs | 3.5hrs |
-| Working with API | H | 3hrs| 2.5hrs | 2.5hrs |
+| Basic HTMl | H | 30 mins | 0 | 0 |
+| Adding Basic CSS | L | 2hrs| 0 | 0 |
+| Accessing API based on input | H | 1.5hrs| 0 | 0 |
+| Rendering API data | H | 4 hrs | 0| 0 |
+| Getting Good-Weak buttons to render | M | 3.5 hrs | 0 | 0 |
+| Advanced CSS | M | 4 hrs | 0 | 0 |
+| Responsive Design | M | 4 hrs | 0 | 0 |
 | Total | H | 6hrs| 5hrs | 5hrs |
 
 ## Code Snippet
@@ -106,10 +107,8 @@ Time frames are also key in the development cycle.  You have limited time to cod
 Use this section to include a brief code snippet of functionality that you are proud of and a brief description.  
 
 ```
-function reverse(string) {
-	// here is the code to reverse a string of text
-}
+Look forward to finding some great snippet to put here
 ```
 
 ## Change Log
- Use this section to document what changes were made and the reasoning behind those changes.  
+ in the future, I will use this section to document what changes were made and the reasoning behind those changes.  
