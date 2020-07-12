@@ -105,8 +105,9 @@ My matrix can be foundn at: https://i.imgur.com/dRo8X5Z.png
 | *Coverphoto/Removing Cover Photo | L | 2.5 hrs | 0 | 0 |
 | *Music on opening page | L | 2 hrs | 0 | 0 |
 | *Personality Test | L | 7 hrs | 0 | 0 |
-| # Total | H | 34 hrs|0 |0 |
-* (* deonotes Post-MVP)
+| Total | H | 34 hrs|0 |0 |
+ (* deonotes Post-MVP)
+
 
 ## Code Snippet
 
