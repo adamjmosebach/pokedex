@@ -66,7 +66,7 @@ My wireframe can be found at: https://wireframe.cc/9XrkTJ
 #### PostMVP
 
 - Having rendered information appear in a pokemon card-like format
-- Good/Weak dropdown animation
+- Good-Weak dropdown animation
 - Pokedex cover image when page first loads
 - Music when page first loads (then stops when you enter site)
 - A personality test to deterine which pokemon you are most like (this is a reach goal)
