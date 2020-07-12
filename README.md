@@ -80,7 +80,7 @@ My wireframe can be found at: https://wireframe.cc/9XrkTJ
 |July 13| Groundwork HTML and CSS / Retrieving data from API | Incomplete
 |July 14| Working with API data / Laying data out on screen / Begin looking at Good-Weak data | Incomplete
 |July 15| Finish working with Good-Weak data / Advanced CSS | Incomplete
-|July 16| Post - MVPs | Incomplete
+|July 16| Finishing Touches / Post - MVPs | Incomplete
 |July 17| Presentations | Incomplete
 
 ## Priority Matrix
