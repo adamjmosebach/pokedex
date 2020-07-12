@@ -22,34 +22,35 @@ Specify the API you are using and include a link. Show us a snippet of JSON retu
 
 ```json
 {
-base_happiness: 35,
-capture_rate: 3,
-color: {
-name: "blue",
-url: "https://pokeapi.co/api/v2/pokemon-color/2/"
-},
-egg_groups: [
 {
-name: "no-eggs",
-url: "https://pokeapi.co/api/v2/egg-group/15/"
-}
-],
-evolution_chain: {
-url: "https://pokeapi.co/api/v2/evolution-chain/73/"
-},
-evolves_from_species: null,
-flavor_text_entries: [
-{
-flavor_text: "A legendary bird POKéMON that is said to appear todoomed people who are lost in icy mountains.",
-language: {
-name: "en",
-url: "https://pokeapi.co/api/v2/language/9/"
-},
-version: {
-name: "red",
-url: "https://pokeapi.co/api/v2/version/1/"
-}
-}
+    "base_happiness": 35,
+    "capture_rate": 3,
+    "color": {
+        "name": "blue",
+        "url": "https://pokeapi.co/api/v2/pokemon-color/2/"
+    },
+    "egg_groups": [
+        {
+            "name": "no-eggs",
+            "url": "https://pokeapi.co/api/v2/egg-group/15/"
+        }
+    ],
+    "evolution_chain": {
+        "url": "https://pokeapi.co/api/v2/evolution-chain/73/"
+    },
+    "evolves_from_species": null,
+    "flavor_text_entries": [
+        {
+            "flavor_text": "A legendary bird\nPOKéMON that is\nsaid to appear to\fdoomed people who\nare lost in icy\nmountains.",
+            "language": {
+                "name": "en",
+                "url": "https://pokeapi.co/api/v2/language/9/"
+            },
+            "version": {
+                "name": "red",
+                "url": "https://pokeapi.co/api/v2/version/1/"
+            }
+        },
 ```
 
 
