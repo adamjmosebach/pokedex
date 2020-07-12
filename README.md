@@ -12,10 +12,10 @@ This project will create a Pokedex - which is a sort of encyclopedia of differen
 
 Specify the API you are using and include a link. Show us a snippet of JSON returned by your API so we know you can access it and get the info you need
 
-Main page of API:
+#Main page of API:
 [Poke API] (https://pokeapi.co/)
 
-Code below from:
+#Code below from:
 
 [Poke API for Articuno] (https://pokeapi.co/api/v2/pokemon-species/144/)
 
@@ -70,7 +70,8 @@ version: {
 name: "yellow",
 url: "https://pokeapi.co/api/v2/version/3/"
 }
-},```
+}
+```
 
 
 ## Wireframes
