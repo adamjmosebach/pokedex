@@ -12,11 +12,11 @@ This project will create a Pokedex - which is a sort of encyclopedia of differen
 
 Specify the API you are using and include a link. Show us a snippet of JSON returned by your API so we know you can access it and get the info you need
 
-# Main page of API:
+### Main page of API:
 
 https://pokeapi.co/
 
-# Code below from:
+### Code below from:
 
 https://pokeapi.co/api/v2/pokemon-species/144/
 
@@ -105,7 +105,7 @@ My matrix can be foundn at: https://i.imgur.com/dRo8X5Z.png
 | *Coverphoto/Removing Cover Photo | L | 2.5 hrs | 0 | 0 |
 | *Music on opening page | L | 2 hrs | 0 | 0 |
 | *Personality Test | L | 7 hrs | 0 | 0 |
-| Total | H | 34 hrs|0 |0 |
+| # Total | H | 34 hrs|0 |0 |
 * (* deonotes Post-MVP)
 
 ## Code Snippet
