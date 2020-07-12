@@ -69,6 +69,7 @@ My wireframe can be found at: https://wireframe.cc/9XrkTJ
 - Good-Weak dropdown animation
 - Pokedex cover image when page first loads
 - Music when page first loads (then stops when you enter site)
+- Be able to select pokemon by type
 - A personality test to deterine which pokemon you are most like (this is a reach goal)
 
 ## Project Schedule
