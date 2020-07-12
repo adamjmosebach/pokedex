@@ -12,11 +12,11 @@ This project will create a Pokedex - which is a sort of encyclopedia of differen
 
 Specify the API you are using and include a link. Show us a snippet of JSON returned by your API so we know you can access it and get the info you need
 
-##Main page of API:
+# Main page of API:
 
 https://pokeapi.co/
 
-##Code below from:
+# Code below from:
 
 https://pokeapi.co/api/v2/pokemon-species/144/
 
@@ -113,8 +113,8 @@ My matrix can be foundn at: https://i.imgur.com/dRo8X5Z.png
 Use this section to include a brief code snippet of functionality that you are proud of and a brief description.  
 
 ```
-Look forward to finding some great snippet to put here
+Looking forward to finding some great snippet to put here
 ```
 
 ## Change Log
- in the future, I will use this section to document what changes were made and the reasoning behind those changes.  
+ In the future, I will use this section to document what changes were made and the reasoning behind those changes.  
