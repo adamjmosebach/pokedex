@@ -6,7 +6,7 @@ Pokedex
 
 ## Project Description
 
-This project will create a Pokedex - which is a sort of encyclopedia of different pokemon. The user will be able to select a pokemon based on their number or name.  Then the app will display the various information on the selected pokemon, including their number, type, and other attributes  It will also have another area where the user can see more information, such as what types said-pokemon would be good against and weak against in battle.
+This project will create a Pokedex - which is a sort of encyclopedia of different pokemon. The user will be able to select a pokemon based on their number or name.  Then the app will display the various information on the selected pokemon, including their number, type, and other attributes.  It will also have another area where the user can see more information, such as what types said-pokemon would be good against and weak against in battle.
 
 ## API and Data Sample
 
