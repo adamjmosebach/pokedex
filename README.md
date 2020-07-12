@@ -12,11 +12,11 @@ This project will create a Pokedex - which is a sort of encyclopedia of differen
 
 Specify the API you are using and include a link. Show us a snippet of JSON returned by your API so we know you can access it and get the info you need
 
-#Main page of API:
+##Main page of API:
 
 https://pokeapi.co/
 
-#Code below from:
+##Code below from:
 
 https://pokeapi.co/api/v2/pokemon-species/144/
 
@@ -81,7 +81,7 @@ My wireframe can be found at: https://wireframe.cc/9XrkTJ
 |July 10-12| Prompt / Wireframes / Priority Matrix / Timeframes | Complete
 |July 13| Project Approval | Incomplete
 |July 13| Groundwork HTML and CSS / Retrieving data from API | Incomplete
-|July 14| Working with API data / Laying it data out on screen / Begin looking at Good/Weak data | Incomplete
+|July 14| Working with API data / Laying data out on screen / Begin looking at Good/Weak data | Incomplete
 |July 15| Finish working with Good/Weak data / Advanced CSS | Incomplete
 |July 16| Post - MVPs | Incomplete
 |July 17| Presentations | Incomplete
@@ -106,7 +106,7 @@ My matrix can be foundn at: https://i.imgur.com/dRo8X5Z.png
 | *Music on opening page | L | 2 hrs | 0 | 0 |
 | *Personality Test | L | 7 hrs | 0 | 0 |
 | Total | H | 34 hrs|0 |0 |
-* (* deonotes PMVP)
+* (* deonotes Post-MVP)
 
 ## Code Snippet
 
