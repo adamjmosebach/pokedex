@@ -98,15 +98,15 @@ My matrix can be foundn at: https://i.imgur.com/dRo8X5Z.png
 | Adding Basic CSS | L | 2 hrs| 0 | 0 |
 | Accessing API based on input | H | 1.5 hrs | 0 | 0 |
 | Rendering API data | H | 4 hrs | 0| 0 |
-| Getting Good-Weak buttons to render | M | 3.5 hrs | 0 | 0 |
+| Getting Good-Weak buttons to render | H | 3.5 hrs | 0 | 0 |
 | Advanced CSS | M | 4 hrs | 0 | 0 |
 | Responsive Design | M | 4 hrs | 0 | 0 |
 | *Select by type | L | 3 hrs | 0 | 0 |
-| *Coverphoto/Removing Cover Photo | 2.5 hrs | 0 | 0 |
-| *Music on opening page | 2 hrs | 0 | 0 |
+| *Coverphoto/Removing Cover Photo | L | 2.5 hrs | 0 | 0 |
+| *Music on opening page | L | 2 hrs | 0 | 0 |
 | *Personality Test | L | 7 hrs | 0 | 0 |
 | Total | H | 34 hrs|0 |0 |
-* (* deonotes PMVP)
+(* deonotes PMVP)
 
 ## Code Snippet
 
