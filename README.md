@@ -106,7 +106,7 @@ My matrix can be foundn at: https://i.imgur.com/dRo8X5Z.png
 | *Music on opening page | L | 2 hrs | 0 | 0 |
 | *Personality Test | L | 7 hrs | 0 | 0 |
 | Total | H | 34 hrs|0 |0 |
-(* deonotes PMVP)
+* (* deonotes PMVP)
 
 ## Code Snippet
 
