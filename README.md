@@ -71,6 +71,7 @@ My wireframe can be found at: https://wireframe.cc/9XrkTJ
 - Having rendered information appear in a pokemon card-like format
 - Good/Weak dropdown animation
 - Pokedex cover image when page first loads
+- Music when page first loads (then stops when you enter site)
 - A personality test to deterine which pokemon you are most like (this is a reach goal)
 
 ## Project Schedule
@@ -105,7 +106,7 @@ My matrix can be foundn at: https://i.imgur.com/dRo8X5Z.png
 | *Music on opening page | 2 hrs | 0 | 0 |
 | *Personality Test | L | 7 hrs | 0 | 0 |
 | Total | H | 34 hrs|0 |0 |
-* deonotes PMVP
+* (* deonotes PMVP)
 
 ## Code Snippet
 
