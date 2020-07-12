@@ -49,28 +49,6 @@ version: {
 name: "red",
 url: "https://pokeapi.co/api/v2/version/1/"
 }
-},
-{
-flavor_text: "A legendary bird POKéMON that is said to appear todoomed people who are lost in icy mountains.",
-language: {
-name: "en",
-url: "https://pokeapi.co/api/v2/language/9/"
-},
-version: {
-name: "blue",
-url: "https://pokeapi.co/api/v2/version/2/"
-}
-},
-{
-flavor_text: "A legendary bird POKéMON. It freezes waterthat is contained in winter air and makes it snow.",
-language: {
-name: "en",
-url: "https://pokeapi.co/api/v2/language/9/"
-},
-version: {
-name: "yellow",
-url: "https://pokeapi.co/api/v2/version/3/"
-}
 }
 ```
 
