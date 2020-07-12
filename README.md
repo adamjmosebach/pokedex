@@ -6,7 +6,7 @@ Pokedex
 
 ## Project Description
 
-This project will create a Pokedex - which is a sort of encyclopedia of different pokemon. The user will be able to select a pokemon based on their number or name (and if time allows, by type).  Then the app will display the various information on the selected pokemon, including their number, type, and other attributes  It will also have another area where the user can see more information, such as what types said-pokemon would be good against and weak against in battle.
+This project will create a Pokedex - which is a sort of encyclopedia of different pokemon. The user will be able to select a pokemon based on their number or name.  Then the app will display the various information on the selected pokemon, including their number, type, and other attributes  It will also have another area where the user can see more information, such as what types said-pokemon would be good against and weak against in battle.
 
 ## API and Data Sample
 
@@ -56,39 +56,33 @@ Specify the API you are using and include a link. Show us a snippet of JSON retu
 
 ## Wireframes
 
-Upload images of your wireframes to an image hosting site or add them to an assets folder in your repo and link them here with a description of each specific wireframe.
+My wireframe can be found at: https://wireframe.cc/9XrkTJ
 
 ### MVP/PostMVP
 
-The functionality will then be divided into two separate lists: MPV and PostMVP.  Carefully decided what is placed into your MVP as the client will expect this functionality to be implemented upon project completion.  
-
 #### MVP 
-*These are examples only. Replace with your own MVP features.*
 
-- Find and use external api 
-- Render data on page 
-- Allow user to choose favorites 
+- User enters Name or Number of pokemon
+- App displays relevant pokemon-specific attributes on the screen
+- User can then click one of two buttons on the side to find out more information about which types the pokemon selected would be good and bad against in battle
 
-#### PostMVP  
-*These are examples only. Replace with your own Post-MVP features.*
+#### PostMVP
 
-- Add second API
-- Use local storage to save user favorites
+- Having rendered information appear in a pokemon card-like format
+- Good/Weak dropdown animation
+- Pokedex cover image when page first loads
+- A personality test to deterine which pokemon you are most like (this is a reach goal)
 
 ## Project Schedule
 
-This schedule will be used to keep track of your progress throughout the week and align with our expectations.  
-
-You are **responsible** for scheduling time with your squad to seek approval for each deliverable by the end of the corresponding day, excluding `Saturday` and `Sunday`.
-
 |  Day | Deliverable | Status
 |---|---| ---|
-|July 10-12| Prompt / Wireframes / Priority Matrix / Timeframes | Incomplete
+|July 10-12| Prompt / Wireframes / Priority Matrix / Timeframes | Complete
 |July 13| Project Approval | Incomplete
-|July 13| Core Application Structure (HTML, CSS, etc.) | Incomplete
-|July 14| Pseudocode / actual code | Incomplete
-|July 15| Initial Clickable Model  | Incomplete
-|July 16| MVP | Incomplete
+|July 13| Groundwork HTML and CSS / Retrieving data from API | Incomplete
+|July 14| Working with API data / Laying it data out on screen / Begin looking at Good/Weak data | Incomplete
+|July 15| Finish working with Good/Weak data / Advanced CSS | Incomplete
+|July 16| Post - MVPs | Incomplete
 |July 17| Presentations | Incomplete
 
 ## Priority Matrix
