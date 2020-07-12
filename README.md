@@ -6,13 +6,14 @@ Pokedex
 
 ## Project Description
 
-This project will create a Pokedex - which is a sort of encyclopedia of different pokemon, their number, type, attributes, etc. The user will be able to select a pokemon based on their number or name (and if time allows, by type).  Then the app will display the various information on the selected pokemon. It will also have another area where the user can see more information, such as what types said pokemon would be good against and weak against in battle.
+This project will create a Pokedex - which is a sort of encyclopedia of different pokemon. The user will be able to select a pokemon based on their number or name (and if time allows, by type).  Then the app will display the various information on the selected pokemon, including their number, type, and other attributes  It will also have another area where the user can see more information, such as what types said-pokemon would be good against and weak against in battle.
 
 ## API and Data Sample
 
 Specify the API you are using and include a link. Show us a snippet of JSON returned by your API so we know you can access it and get the info you need
 
 #Main page of API:
+
 [Poke API] (https://pokeapi.co/)
 
 #Code below from:
