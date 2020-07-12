@@ -20,7 +20,6 @@ https://pokeapi.co/api/v2/pokemon-species/144/
 
 ```json
 {
-{
     "base_happiness": 35,
     "capture_rate": 3,
     "color": {
