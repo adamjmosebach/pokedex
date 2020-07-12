@@ -14,11 +14,11 @@ Specify the API you are using and include a link. Show us a snippet of JSON retu
 
 #Main page of API:
 
-[Poke API] (https://pokeapi.co/)
+https://pokeapi.co/
 
 #Code below from:
 
-[Poke API for Articuno] (https://pokeapi.co/api/v2/pokemon-species/144/)
+https://pokeapi.co/api/v2/pokemon-species/144/
 
 ```json
 {
