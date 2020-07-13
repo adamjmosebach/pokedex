@@ -1,0 +1,27 @@
+header {
+  background-color: red;
+  color: yellow;
+}
+body {
+  position: relative;
+  height: 100%;
+  padding-bottom: 40px;
+}
+main {
+  display: flex;
+  flex-flow: row wrap;
+}
+footer {
+  position: absolute;
+  height: 25px;
+  bottom: 0;
+  background-color: blue;
+  color: yellow;
+  width: 100vw;
+}
+.pokePic {
+  height: 200px;
+}
+.errorBall {
+  height: 200px;
+}
