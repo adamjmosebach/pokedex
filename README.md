@@ -51,6 +51,69 @@ https://pokeapi.co/api/v2/pokemon-species/144/
 ```
 
 
+## Second API endpoint
+
+https://www.pokemon.com/us/api/pokedex/kalos
+
+## Second API code snippet
+
+```json
+{
+        "abilities": [
+            "Overgrow"
+        ],
+        "detailPageURL": "/us/pokedex/bulbasaur",
+        "weight": 15.2,
+        "weakness": [
+            "Fire",
+            "Psychic",
+            "Flying",
+            "Ice"
+        ],
+        "number": "001",
+        "height": 28.0,
+        "collectibles_slug": "bulbasaur",
+        "featured": "true",
+        "slug": "bulbasaur",
+        "name": "Bulbasaur",
+        "ThumbnailAltText": "Bulbasaur",
+        "ThumbnailImage": "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/001.png",
+        "id": 1,
+        "type": [
+            "grass",
+            "poison"
+        ]
+    },
+    {
+        "abilities": [
+            "Overgrow"
+        ],
+        "detailPageURL": "/us/pokedex/ivysaur",
+        "weight": 28.7,
+        "weakness": [
+            "Fire",
+            "Psychic",
+            "Flying",
+            "Ice"
+        ],
+        "number": "002",
+        "height": 39.0,
+        "collectibles_slug": "ivysaur",
+        "featured": "true",
+        "slug": "ivysaur",
+        "name": "Ivysaur",
+        "ThumbnailAltText": "Ivysaur",
+        "ThumbnailImage": "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/002.png",
+        "id": 2,
+        "type": [
+            "grass",
+            "poison"
+        ]
+    },
+ ```
+
+
+
 ## Wireframes
 
 My wireframe can be found at: https://wireframe.cc/9XrkTJ
