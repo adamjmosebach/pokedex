@@ -116,7 +116,7 @@ https://www.pokemon.com/us/api/pokedex/kalos
 
 ## Wireframes
 
-### Computer View
+#### Computer View
 
 https://wireframe.cc/9XrkTJ
 
@@ -124,7 +124,7 @@ https://wireframe.cc/9XrkTJ
 
 https://wireframe.cc/uMmnp
 
-#### MVP/PostMVP
+## MVP/PostMVP
 
 #### MVP 
 
