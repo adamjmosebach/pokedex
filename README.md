@@ -51,11 +51,11 @@ https://pokeapi.co/api/v2/pokemon-species/144/
 ```
 
 
-## Second API endpoint
+### Second API endpoint
 
 https://www.pokemon.com/us/api/pokedex/kalos
 
-## Second API code snippet
+### Second API code snippet
 
 ```json
 {
