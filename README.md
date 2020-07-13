@@ -186,4 +186,4 @@ Looking forward to finding some great snippet to put here
 ```
 
 ## Change Log
- In the future, I will use this section to document what changes were made and the reasoning behind those changes.  
+ - Since the first API with most of the data did not have images, my thought was to loop over a second API to find the entered pokemon's name as a key in the object, then correlate that property with another key-value: an image-url. Instead, I used a link to a site that contained various pokemon images by number. I thought looping over a second API would slow the app's runtime considerably as oppsed to the way I ended up doing it.
