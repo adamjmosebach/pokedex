@@ -116,12 +116,19 @@ https://www.pokemon.com/us/api/pokedex/kalos
 
 ## Wireframes
 
-My wireframe can be found at: https://wireframe.cc/9XrkTJ
+### Computer View
+
+https://wireframe.cc/9XrkTJ
+
+### Responsive View
+
+https://wireframe.cc/uMmnp
 
 ### MVP/PostMVP
 
 #### MVP 
 
+- Meet all GA project requirements
 - User enters Name or Number of pokemon
 - App displays relevant pokemon-specific attributes on the screen
 - User can then click one of two buttons on the side to find out more information about which types the pokemon selected would be good and bad against in battle
