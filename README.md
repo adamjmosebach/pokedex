@@ -10,11 +10,11 @@ This project will create a Pokedex - which is a sort of encyclopedia of differen
 
 ## API and Data Sample
 
-#### Main page of API:
+### Main page of API:
 
 https://pokeapi.co/
 
-#### Endpoint code below from:
+### Endpoint code below from:
 
 https://pokeapi.co/api/v2/pokemon-species/144/
 
