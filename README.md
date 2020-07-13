@@ -120,11 +120,11 @@ https://www.pokemon.com/us/api/pokedex/kalos
 
 https://wireframe.cc/9XrkTJ
 
-### Responsive View
+#### Responsive View
 
 https://wireframe.cc/uMmnp
 
-### MVP/PostMVP
+#### MVP/PostMVP
 
 #### MVP 
 
