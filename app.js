@@ -57,23 +57,33 @@ function displayData(pokeData) {
   pokeTypeHeader.innerText = `${pokeCapital} is the following type(s):`
   const pokeTypeList = document.createElement('ul');
   typesDiv.append(pokeTypeHeader, pokeTypeList);
-  
 
+  //Add good button
   const goodWeak = document.querySelector('#good-weak');
+  const goodDivCreate = document.createElement('div');
+  goodDivCreate.id = 'good-div';
   const goodButton = document.createElement('div');
+  goodWeak.append(goodDivCreate);
+  const goodDiv = document.querySelector('#good-div');
   goodButton.classList = 'battle-button';
   goodButton.id = 'good-button';
   goodButton.innerText = 'Good Against';
-  
-  //goodButton.addEventListener('click',displayGood(poke))
+
+  //Add weak button
+  const weakDivCreate = document.createElement('div');
+  weakDivCreate.id = 'weak-div';
   const weakButton = document.createElement('div');
+  goodWeak.append(weakDivCreate);
+  const weakDiv = document.querySelector('#weak-div');
   weakButton.classList = 'battle-button';
   weakButton.id = 'weak-button';
   weakButton.innerText = 'Weak Against';
   // weakButton.addEventListener('click', () => {
 
   // })
-  goodWeak.append(goodButton, weakButton)
+  
+  goodDiv.append(goodButton);
+  weakDiv.append(weakButton);
 
   
   
@@ -93,7 +103,6 @@ function displayData(pokeData) {
   
 }
 
-//displayGood()
 
 async function goodWeakOutcomes(pokeType) {
   try {
@@ -110,14 +119,14 @@ async function goodWeakOutcomes(pokeType) {
         bestAgainstHeader.innerText = `${pokeType} types are best against:`;
         const bestList = document.createElement('ul');
         bestList.id = `best-against-${pokeType}`;
-        const goodSection = document.querySelector('#good-button');
+        const goodSection = document.querySelector('#good-div');
         goodSection.append(bestAgainstHeader, bestList);
 
         const weakestAgainstHeader = document.createElement('h4');
         weakestAgainstHeader.innerText = `${pokeType} types are weakest against:`;
         const weakestList = document.createElement('ul');
         weakestList.id = `weak-against-${pokeType}`;
-        const weakSection = document.querySelector('#weak-button');
+        const weakSection = document.querySelector('#weak-div');
         weakSection.append(weakestAgainstHeader, weakestList);
 
         console.log(`${typeDataArr[i].name} is indici ${i}`);
@@ -197,7 +206,7 @@ async function getData(input) {
     }
     const url = `https://pokeapi.co/api/v2/pokemon/${input}`
     const pokeObj = await axios.get(url);
-    console.log(pokeObj);
+    //console.log(pokeObj);
     const pokeData = pokeObj.data;
     displayData(pokeData);
   }
