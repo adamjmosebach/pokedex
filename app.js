@@ -58,34 +58,30 @@ function displayData(pokeData) {
   const pokeTypeList = document.createElement('ul');
   typesDiv.append(pokeTypeHeader, pokeTypeList);
 
-  //Add good button
+  //Good-Week Section
   const goodWeak = document.querySelector('#good-weak');
-  const goodDivCreate = document.createElement('div');
-  goodDivCreate.id = 'good-div';
+
+  //Add good button
   const goodButton = document.createElement('div');
-  goodWeak.append(goodDivCreate);
-  const goodDiv = document.querySelector('#good-div');
   goodButton.classList = 'battle-button';
   goodButton.id = 'good-button';
   goodButton.innerText = 'Good Against';
+  const goodDisplayCreate = document.createElement('div');
+  goodDisplayCreate.id = 'good-display';
+  goodWeak.append(goodButton, goodDisplayCreate);
 
   //Add weak button
-  const weakDivCreate = document.createElement('div');
-  weakDivCreate.id = 'weak-div';
   const weakButton = document.createElement('div');
-  goodWeak.append(weakDivCreate);
-  const weakDiv = document.querySelector('#weak-div');
   weakButton.classList = 'battle-button';
   weakButton.id = 'weak-button';
   weakButton.innerText = 'Weak Against';
+  const weakDisplayCreate = document.createElement('div');
+  weakDisplayCreate.id = 'weak-display';
+  goodWeak.append(weakButton, weakDisplayCreate);
   // weakButton.addEventListener('click', () => {
 
   // })
-  
-  goodDiv.append(goodButton);
-  weakDiv.append(weakButton);
-
-  
+ 
   
   const typesArr = pokeData.types;
   for (let i = 0; i < typesArr.length; i++) {
@@ -119,14 +115,14 @@ async function goodWeakOutcomes(pokeType) {
         bestAgainstHeader.innerText = `${pokeType} types are best against:`;
         const bestList = document.createElement('ul');
         bestList.id = `best-against-${pokeType}`;
-        const goodSection = document.querySelector('#good-div');
+        const goodSection = document.querySelector('#good-display');
         goodSection.append(bestAgainstHeader, bestList);
 
         const weakestAgainstHeader = document.createElement('h4');
         weakestAgainstHeader.innerText = `${pokeType} types are weakest against:`;
         const weakestList = document.createElement('ul');
         weakestList.id = `weak-against-${pokeType}`;
-        const weakSection = document.querySelector('#weak-div');
+        const weakSection = document.querySelector('#weak-display');
         weakSection.append(weakestAgainstHeader, weakestList);
 
         console.log(`${typeDataArr[i].name} is indici ${i}`);
