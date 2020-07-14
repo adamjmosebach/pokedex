@@ -3,7 +3,7 @@ const userInput = document.querySelector('#nameNum');
 const form = document.querySelector('#nameNumSelect')
 
 function displayData(pokeData) {
-  
+
   //Reset input box
   userInput.value = '';
 
@@ -31,11 +31,11 @@ function displayData(pokeData) {
   const movesArr = pokeData.moves;
   const movesList = document.createElement('ul');
   movesList.id = 'movesList';
-  
+
   //Append
   const display = document.querySelector('#display');
   display.append(pokeNum, pokeName, pokeImg, movesHeader, movesList);
-  
+
   //Display moveset
   if (movesArr.length < 5) {
     for (let i = 0; i < movesArr.length; i++) {
@@ -83,14 +83,14 @@ function displayData(pokeData) {
   weakDisplayCreate.id = 'weak-display';
   weakDisplayCreate.classList = 'display-hidden';
   goodWeak.append(weakButtonCreate, weakDisplayCreate);
-  
+
   //Event listener for weak button
   const weakButton = document.querySelector('#weak-button');
   weakButton.addEventListener('click', () => {
     const weakDisplay = document.querySelector('#weak-display');
     weakDisplay.classList.toggle('display-hidden');
   });
- 
+
   //Display: Type(s) / Good against / Weak against
   const typesArr = pokeData.types;
   for (let i = 0; i < typesArr.length; i++) {
