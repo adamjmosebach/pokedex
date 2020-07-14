@@ -43,3 +43,6 @@ footer {
 #weak-button {
   margin-top: 10px;
 }
+.display-hidden{
+  display: none;
+}

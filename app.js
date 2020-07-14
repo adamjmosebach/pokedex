@@ -1,11 +1,6 @@
-// console.log('hello world');
- 
+//Some global variables 
 const userInput = document.querySelector('#nameNum');
 const form = document.querySelector('#nameNumSelect')
-
-// console.log(userInput);
-// console.log(button);
-// console.log(form);
 
 function displayData(pokeData) {
   
@@ -61,56 +56,64 @@ function displayData(pokeData) {
   //Good-Week Section
   const goodWeak = document.querySelector('#good-weak');
 
-  //Add good button
-  const goodButton = document.createElement('div');
-  goodButton.classList = 'battle-button';
-  goodButton.id = 'good-button';
-  goodButton.innerText = 'Good Against';
+  //Add good button & hidden display area
+  const goodButtonCreate = document.createElement('div');
+  goodButtonCreate.classList = 'battle-button';
+  goodButtonCreate.id = 'good-button';
+  goodButtonCreate.innerText = 'Good Against';
   const goodDisplayCreate = document.createElement('div');
   goodDisplayCreate.id = 'good-display';
-  goodWeak.append(goodButton, goodDisplayCreate);
+  goodDisplayCreate.classList = 'display-hidden';
+  goodWeak.append(goodButtonCreate, goodDisplayCreate);
 
-  //Add weak button
-  const weakButton = document.createElement('div');
-  weakButton.classList = 'battle-button';
-  weakButton.id = 'weak-button';
-  weakButton.innerText = 'Weak Against';
+  //Event listener for good button
+  const goodDisplay = document.querySelector('#good-display');
+    console.log(goodDisplay);
+  const goodButton = document.querySelector('#good-button');
+  goodButton.addEventListener('click', () => {
+    const goodDisplay = document.querySelector('#good-display');
+    goodDisplay.classList.toggle('display-hidden');
+  });
+
+  //Add weak button & hidden display area
+  const weakButtonCreate = document.createElement('div');
+  weakButtonCreate.classList = 'battle-button';
+  weakButtonCreate.id = 'weak-button';
+  weakButtonCreate.innerText = 'Weak Against';
   const weakDisplayCreate = document.createElement('div');
   weakDisplayCreate.id = 'weak-display';
-  goodWeak.append(weakButton, weakDisplayCreate);
-  // weakButton.addEventListener('click', () => {
-
-  // })
- 
+  weakDisplayCreate.classList = 'display-hidden';
+  goodWeak.append(weakButtonCreate, weakDisplayCreate);
   
+  //Event listener for weak button
+  const weakDisplay = document.querySelector('#weak-display');
+    console.log(weakDisplay);
+  const weakButton = document.querySelector('#weak-button');
+  weakButton.addEventListener('click', () => {
+    const weakDisplay = document.querySelector('#weak-display');
+    weakDisplay.classList.toggle('display-hidden');
+  });
+ 
+  //Display: Type(s) / Good against / Weak against
   const typesArr = pokeData.types;
   for (let i = 0; i < typesArr.length; i++) {
-    //console.log(typesArr[i].type.name);
-
-    const pokeType = typesArr[i].type.name
-
-    const createTypeItem = document.createElement('li')
-   
-    //console.log(pokeType);
+    const pokeType = typesArr[i].type.name;
+    const createTypeItem = document.createElement('li');
     createTypeItem.textContent = pokeType;
     goodWeakOutcomes(pokeType);
     typesDiv.append(createTypeItem);
   }
-  
 }
 
-
+//Finds what each type this pokemon is and sets the stage
 async function goodWeakOutcomes(pokeType) {
   try {
     const typesObj = await axios.get('https://pokeapi.co/api/v2/type');
-    //console.log(typeObj);
     const typeDataArr = typesObj.data.results;
-    //console.log(typeDataArr);
-    console.log(pokeType);
     for (let i = 0; i < typeDataArr.length; i++) {
-      //console.log(typeDataArr[i].name);
       if (typeDataArr[i].name === pokeType) {
 
+        //Sets up 'Good Against' section
         const bestAgainstHeader = document.createElement('h4');
         bestAgainstHeader.innerText = `${pokeType} types are best against:`;
         const bestList = document.createElement('ul');
@@ -118,6 +121,7 @@ async function goodWeakOutcomes(pokeType) {
         const goodSection = document.querySelector('#good-display');
         goodSection.append(bestAgainstHeader, bestList);
 
+        //Sets up 'Weak Against' section
         const weakestAgainstHeader = document.createElement('h4');
         weakestAgainstHeader.innerText = `${pokeType} types are weakest against:`;
         const weakestList = document.createElement('ul');
@@ -125,7 +129,7 @@ async function goodWeakOutcomes(pokeType) {
         const weakSection = document.querySelector('#weak-display');
         weakSection.append(weakestAgainstHeader, weakestList);
 
-        console.log(`${typeDataArr[i].name} is indici ${i}`);
+        //Gets each type's url and passes it to getTypeData
         const typeUrl = typeDataArr[i].url;
         getTypeData(typeUrl, pokeType);
       }
@@ -136,16 +140,16 @@ async function goodWeakOutcomes(pokeType) {
   }
 }
 
+//For each type, this lists out which types it is good and weak against
 async function getTypeData(typeUrl, pokeType) {
   try {
     const typeObj = await axios.get(typeUrl);
-    console.log(typeObj);
+    //console.log(typeObj);
     //const createBest = document.createElement()
     
     //Display 'best against' data
     const bestAgainstArr = typeObj.data.damage_relations.double_damage_to;
     for (let i = 0; i < bestAgainstArr.length; i++) {
-      console.log(`Best against: ${bestAgainstArr[i].name}`);
       const bestAgainstItem = document.createElement('li');
       bestAgainstItem.textContent = `${bestAgainstArr[i].name}`;
       const bestList = document.querySelector(`#best-against-${pokeType}`);
@@ -154,9 +158,7 @@ async function getTypeData(typeUrl, pokeType) {
 
     //Display 'weak against' data
     const weakestAgainstArr = typeObj.data.damage_relations.double_damage_from;
-    console.log('weakestAgainstArr = ' + weakestAgainstArr);
     for (let i = 0; i < weakestAgainstArr.length; i++) {
-      console.log(`Worst against: ${weakestAgainstArr[i].name}`);
       const weakestAgainstItem = document.createElement('li');
       weakestAgainstItem.textContent = `${weakestAgainstArr[i].name}`;
       const weakestList = document.querySelector(`#weak-against-${pokeType}`);
@@ -169,6 +171,7 @@ async function getTypeData(typeUrl, pokeType) {
   }
 }
 
+//Displays the pokemon's moves
 function displayMoves(movesArr, i) {
   const movesList = document.querySelector('#movesList');
   const move = document.createElement('li');
@@ -179,35 +182,25 @@ function displayMoves(movesArr, i) {
   movesList.appendChild(move);
 }
 
-// async function getImage(pokeData) {
-//   try {
-//     const pokeNum = pokeData.id;
-//     console.log('pokeNum in getImage is a ' + typeof pokeNum);
-//     const url = `https://pokeres.bastionbot.org/images/pokemon/${pokeNum}.png`
-//     const imageData = await axios.get(url);
-//     displayData(pokeData, imageData);
-//   }
-//   catch (err) {
-//     console.log('My error is: ' + err);
-//   }
-// }
-
+//Gets general data on selected pokemon
 async function getData(input) {
   try {
+    //Deals with the two pokemon that have periods and spaces
     if (input == 'mr. mime' || input == 'Mr. Mime' || input == 'mr mime' || input == 'Mr Mime') {
       input = 'mr-mime';
     }
     if (input == 'mime jr' || input == 'Mime Jr' || input == 'mime jr.' || input == 'Mime Jr.') {
       input = 'mime-jr';
     }
+    //Retrieving general data
     const url = `https://pokeapi.co/api/v2/pokemon/${input}`
     const pokeObj = await axios.get(url);
-    //console.log(pokeObj);
     const pokeData = pokeObj.data;
     displayData(pokeData);
   }
   catch (err) {
     console.log('My error is: ' + err);
+    //Display error message if pokemon not found
     const errMessage = document.createElement('h1');
     const display = document.querySelector('#display');
     errMessage.innerText = 'Uh oh, that is not a known Pokémon';
@@ -218,6 +211,7 @@ async function getData(input) {
   }
 }
 
+//Remove previous data from each section
 function removeData() {
   const display = document.querySelector('#display');
   while (display.lastChild) {
@@ -233,9 +227,9 @@ function removeData() {
   }
 }
 
+//Event listener for form
 form.addEventListener('submit', (e) => {
   e.preventDefault();
   removeData();
-  //console.log(userInput.value);
   getData(userInput.value);
 })
