@@ -12,14 +12,19 @@
 
 <body>
   <header>Welcome to the Wonderful World of Pokémon!</header><br>
+
+  <form id='nameNumSelect'>
+    <input type='text' id='nameNum'>
+    <input type='submit' id='submitter'>
+  </form>
   <main>
-    <form id='nameNumSelect'>
-      <input type='text' id='nameNum'>
-      <input type='submit' id='submitter'>
-    </form>
-    <div id='display'>
+    <div id='left-panel'>
+      <div id='display'></div>
+      <div id='types'></div>
     </div>
-    <div id='good-weak'></div>
+    <div class='right-panel'>
+      <div id='good-weak'></div>
+    </div>
   </main>
   <footer>this Pokédex made by Adam Mosebach</footer>
 </body>

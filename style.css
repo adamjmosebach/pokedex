@@ -1,7 +1,7 @@
 header {
   background-color: red;
   color: yellow;
-}
+} 
 body {
   position: relative;
   height: 100%;
@@ -10,6 +10,7 @@ body {
 main {
   display: flex;
   flex-flow: row wrap;
+  justify-content: flex-start;
 }
 footer {
   position: absolute;
@@ -24,4 +25,19 @@ footer {
 }
 .errorBall {
   height: 200px;
+}
+#left-panel {
+  width: 50%vw;
+  padding: 15px;
+}
+#good-weak {
+  width: 50%vw;
+  padding: 30px;
+}
+.battle-button {
+  border: 2px solid blue;
+  padding: 10px;
+}
+#weak-button {
+  margin-top: 10px;
 }
