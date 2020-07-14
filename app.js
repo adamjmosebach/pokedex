@@ -15,12 +15,13 @@ function displayData(pokeData) {
   const nameArr = pokeLowerName.split('');
   nameArr[0] = nameArr[0].toUpperCase();
   pokeCapital = nameArr.join('');
-  if (pokeCapital === 'Mr-mime') {
-    pokeCapital = 'Mr. Mime';
-  }
-  if (pokeCapital === 'Mime-jr') {
-    pokeCapital = 'Mime Jr.';
-  }
+    //Deals with the two pokemon that have dashes-for-spaces in API
+    if (pokeCapital === 'Mr-mime') {
+      pokeCapital = 'Mr. Mime';
+    }
+    if (pokeCapital === 'Mime-jr') {
+      pokeCapital = 'Mime Jr.';
+    }
   pokeName.innerText = pokeCapital;
   const pokeImg = document.createElement('img');
   pokeImg.src = `https://pokeres.bastionbot.org/images/pokemon/${pokeData.id}.png`;
@@ -136,20 +137,29 @@ async function goodWeakOutcomes(pokeType) {
   }
 }
 
-//For each type, this lists out which types it is good and weak against
+//For each type, lists out which types it is good and weak against
 async function getTypeData(typeUrl, pokeType) {
   try {
     const typeObj = await axios.get(typeUrl);
-    //console.log(typeObj);
-    //const createBest = document.createElement()
-    
-    //Display 'best against' data
+
+    //Displays what each type deals double damge to
     const bestAgainstArr = typeObj.data.damage_relations.double_damage_to;
-    for (let i = 0; i < bestAgainstArr.length; i++) {
-      const bestAgainstItem = document.createElement('li');
-      bestAgainstItem.textContent = `${bestAgainstArr[i].name}`;
-      const bestList = document.querySelector(`#best-against-${pokeType}`);
-      bestList.append(bestAgainstItem);
+    if (bestAgainstArr.length != 0) {
+      for (let i = 0; i < bestAgainstArr.length; i++) {
+        const bestAgainstItem = document.createElement('li');
+        bestAgainstItem.textContent = `${bestAgainstArr[i].name}`;
+        const bestList = document.querySelector(`#best-against-${pokeType}`);
+        bestList.append(bestAgainstItem);
+      }
+    } else {
+      //Accounting for Normal type: which does not deal double damage to anyone, so must move to half damage
+      const secondBestAgainstArr = typeObj.data.damage_relations.half_damage_to;
+      for (let i = 0; i < secondBestAgainstArr.length; i++) {
+        const secondBestAgainstItem = document.createElement('li');
+        secondBestAgainstItem.textContent = `${secondBestAgainstArr[i].name}`;
+        const bestList = document.querySelector(`#best-against-${pokeType}`);
+        bestList.append(secondBestAgainstItem);
+      }
     }
 
     //Display 'weak against' data
@@ -174,7 +184,6 @@ function displayMoves(movesArr, i) {
   const rawMove = movesArr[i].move.name;
   const moveNoSpaces = rawMove.replace('-', ' ');
   move.textContent = moveNoSpaces;
-  //console.log(movesArr[i].move.name);
   movesList.appendChild(move);
 }
 
