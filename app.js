@@ -67,8 +67,6 @@ function displayData(pokeData) {
   goodWeak.append(goodButtonCreate, goodDisplayCreate);
 
   //Event listener for good button
-  const goodDisplay = document.querySelector('#good-display');
-    console.log(goodDisplay);
   const goodButton = document.querySelector('#good-button');
   goodButton.addEventListener('click', () => {
     const goodDisplay = document.querySelector('#good-display');
@@ -86,8 +84,6 @@ function displayData(pokeData) {
   goodWeak.append(weakButtonCreate, weakDisplayCreate);
   
   //Event listener for weak button
-  const weakDisplay = document.querySelector('#weak-display');
-    console.log(weakDisplay);
   const weakButton = document.querySelector('#weak-button');
   weakButton.addEventListener('click', () => {
     const weakDisplay = document.querySelector('#weak-display');
