@@ -4,9 +4,6 @@ const form = document.querySelector('#nameNumSelect')
 
 function displayData(pokeData) {
 
-  //Reset input box
-  userInput.value = '';
-
   //Display main information & image
   const card = document.querySelector('#left-panel');
   card.classList = 'poke-card';
@@ -208,13 +205,16 @@ async function getData(input) {
     //Retrieving general data
     const url = `https://pokeapi.co/api/v2/pokemon/${input}`
     const pokeObj = await axios.get(url);
+    console.log(pokeObj);
     const pokeData = pokeObj.data;
     displayData(pokeData);
   }
   catch (err) {
     console.log('My error is: ' + err);
-    //Display error message if pokemon not found
+    //Remove previous style
     const display = document.querySelector('#left-panel');
+    display.classList.toggle('poke-card',false);
+    //Display error message if pokemon not found
     const errorDivCreate = document.createElement('div');
     errorDivCreate.id = 'errorDiv';
     const errMessage = document.createElement('h1');
@@ -262,6 +262,8 @@ form.addEventListener('submit', (e) => {
   e.preventDefault();
   removeData();
   getData(userInput.value);
+  //Reset input box
+  userInput.value = '';
 })
 
 //Opening pokéball - music
