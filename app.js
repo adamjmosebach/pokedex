@@ -10,7 +10,7 @@ function displayData(pokeData) {
   //Display main information & image
   const card = document.querySelector('#left-panel');
   card.classList = 'poke-card';
-  const pokeNum = document.createElement('h3');
+  const pokeNum = document.createElement('h2');
   pokeNum.innerText = `# ${pokeData.id}`;
   const pokeName = document.createElement('h1');
   const pokeLowerName = pokeData.name;
@@ -35,8 +35,12 @@ function displayData(pokeData) {
   movesList.id = 'movesList';
 
   //Append
-  const display = document.querySelector('#display');
-  display.append(pokeName, pokeNum, pokeImg, movesHeader, movesList);
+  const displayHeader = document.querySelector('#displayHeader');
+  displayHeader.append(pokeName, pokeNum);
+  const picSection = document.querySelector('#picSection');
+  picSection.append(pokeImg);
+  const movesSection = document.querySelector('#movesSection');
+  movesSection.append(movesHeader, movesList);
 
   //Display moveset
   if (movesArr.length < 5) {
@@ -222,9 +226,17 @@ async function getData(input) {
 
 //Remove previous data from each section
 function removeData() {
-  const display = document.querySelector('#display');
-  while (display.lastChild) {
-    display.lastChild.remove()
+  const displayHeader = document.querySelector('#displayHeader');
+  while (displayHeader.lastChild) {
+    displayHeader.lastChild.remove()
+  }
+  const picSection = document.querySelector('#picSection');
+  while (picSection.lastChild) {
+    picSection.lastChild.remove()
+  }
+  const movesSection = document.querySelector('#movesSection');
+  while (movesSection.lastChild) {
+    movesSection.lastChild.remove()
   }
   const typesDiv = document.querySelector('#types');
   while (typesDiv.lastChild) {
