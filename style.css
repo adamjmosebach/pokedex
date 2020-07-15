@@ -18,6 +18,7 @@ header {
   font-family: 'Stalinist One', cursive;
   text-shadow: 0 0 15px black;
   color: white;
+  padding: 5px;
 }
 body {
   position: relative;
