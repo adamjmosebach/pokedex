@@ -4,6 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Stalinist+One&display=swap" rel="stylesheet">
   <link rel='stylesheet' href='style.css' type='text/css'>
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script defer src='app.js'></script>
@@ -11,9 +12,11 @@
 </head>
  
 <body>
-  <header>Welcome to the Wonderful World of Pokémon!</header><br>
-
+  <header>
+    <span id='heading'>Welcome to the Wonderful World of Pokémon!</span>
+  </header><br>
   <form id='nameNumSelect'>
+    <label for='nameNum'>Name or Number of a Pokémon:</label><br>
     <input type='text' id='nameNum'>
     <input type='submit' id='submitter'>
   </form>
@@ -28,7 +31,9 @@
       <div id='good-weak'></div>
     </div>
   </main>
-  <footer>this Pokédex made by Adam Mosebach</footer>
+  <footer>
+    <span id='footing'>this Pokédex made by Adam Mosebach</span>
+  </footer>
 </body>
 
 </html>
