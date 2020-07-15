@@ -214,13 +214,19 @@ async function getData(input) {
   catch (err) {
     console.log('My error is: ' + err);
     //Display error message if pokemon not found
+    const display = document.querySelector('#left-panel');
+    const errorDivCreate = document.createElement('div');
+    errorDivCreate.id = 'errorDiv';
     const errMessage = document.createElement('h1');
-    const display = document.querySelector('#display');
     errMessage.innerText = 'Uh oh, that is not a known Pokémon';
+    errMessage.classList = 'errorFound';
     const errImg = document.createElement('img');
-    errImg.classList = 'errorBall';
+    errImg.classList = 'errorFound';
+    errImg.id = 'errorBall';
     errImg.src = 'https://i.imgur.com/OuhHR94.png';
-    display.append(errMessage, errImg);
+    display.append(errorDivCreate);
+    const errorDiv = document.querySelector('#errorDiv');
+    errorDiv.append(errMessage, errImg);
   }
 }
 
@@ -245,6 +251,9 @@ function removeData() {
   const goodWeak = document.querySelector('#good-weak');
   while (goodWeak.lastChild) {
     goodWeak.lastChild.remove()
+  }
+  if (document.querySelector('#errorDiv')) {
+    document.querySelector('#errorDiv').remove();
   }
 }
 

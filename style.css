@@ -56,8 +56,9 @@ footer {
   border: 5px solid rgb(240, 240, 16);
   /* position: relative; */
 }
-.errorBall {
-  height: 200px;
+#errorBall {
+  height: 255px;
+  width: 255px;
 }
 #left-panel {
   padding: 15px;
