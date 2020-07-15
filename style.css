@@ -21,19 +21,26 @@ footer {
   width: 100vw;
 }
 .pokePic {
-  height: 200px;
+  height: 225px;
+  display: inline;
+  background-image: url('https://i.imgur.com/YE619xI.jpg');
+  margin: 0 0 20px 0;
+  padding: 0;
+  border: 3px solid yellow;
+  /* position: relative; */
 }
 .errorBall {
   height: 200px;
 }
 #left-panel {
-  width: 50%vw;
   padding: 15px;
+  display: flex;
+  flex-direction: column;
 }
 #good-weak {
   width: 50%vw;
   padding: 20px;
-  border: 2px solid red;
+  /* border: 2px solid red; */
   margin: 10px;
 }
 .battle-button {
@@ -43,6 +50,33 @@ footer {
 #weak-button {
   margin-top: 10px;
 }
-.display-hidden{
+.display-hidden {
   display: none;
+}
+.poke-card {
+  background-image: url('https://i.imgur.com/5Pien6r.jpg');
+  background-size: cover;
+  border: 10px solid rgb(255, 247, 0);
+  box-sizing: border-box;
+  width: 430px;
+}
+h1 {
+  display: inline;
+  float: left;
+  margin-top: 0;
+}
+h3 {
+  display: inline;
+  float: right;
+  margin-top: 4px;
+  padding: 5px;
+}
+#types {
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(255, 255, 255, .4);
+  padding-bottom: 10px;
+}
+#pokeTypeList {
+  margin: 0;
 }

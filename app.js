@@ -8,6 +8,8 @@ function displayData(pokeData) {
   userInput.value = '';
 
   //Display main information & image
+  const card = document.querySelector('#left-panel');
+  card.classList = 'poke-card';
   const pokeNum = document.createElement('h3');
   pokeNum.innerText = `# ${pokeData.id}`;
   const pokeName = document.createElement('h1');
@@ -15,13 +17,13 @@ function displayData(pokeData) {
   const nameArr = pokeLowerName.split('');
   nameArr[0] = nameArr[0].toUpperCase();
   pokeCapital = nameArr.join('');
-    //Deals with the two pokemon that have dashes-for-spaces in API
-    if (pokeCapital === 'Mr-mime') {
-      pokeCapital = 'Mr. Mime';
-    }
-    if (pokeCapital === 'Mime-jr') {
-      pokeCapital = 'Mime Jr.';
-    }
+  //Deals with the two pokemon that have dashes-for-spaces in API
+  if (pokeCapital === 'Mr-mime') {
+    pokeCapital = 'Mr. Mime';
+  }
+  if (pokeCapital === 'Mime-jr') {
+    pokeCapital = 'Mime Jr.';
+  }
   pokeName.innerText = pokeCapital;
   const pokeImg = document.createElement('img');
   pokeImg.src = `https://pokeres.bastionbot.org/images/pokemon/${pokeData.id}.png`;
@@ -34,7 +36,7 @@ function displayData(pokeData) {
 
   //Append
   const display = document.querySelector('#display');
-  display.append(pokeNum, pokeName, pokeImg, movesHeader, movesList);
+  display.append(pokeName, pokeNum, pokeImg, movesHeader, movesList);
 
   //Display moveset
   if (movesArr.length < 5) {
@@ -50,8 +52,9 @@ function displayData(pokeData) {
   //Display types
   const typesDiv = document.querySelector('#types');
   const pokeTypeHeader = document.createElement('h3');
-  pokeTypeHeader.innerText = `${pokeCapital} is the following type(s):`
+  pokeTypeHeader.innerText = `${pokeCapital} is the following type(s):`;
   const pokeTypeList = document.createElement('ul');
+  pokeTypeList.id = 'pokeTypeList';
   typesDiv.append(pokeTypeHeader, pokeTypeList);
 
   //Good-Week Section
@@ -98,7 +101,8 @@ function displayData(pokeData) {
     const createTypeItem = document.createElement('li');
     createTypeItem.textContent = pokeType;
     goodWeakOutcomes(pokeType);
-    typesDiv.append(createTypeItem);
+    const pokeTypeList = document.querySelector('#pokeTypeList');
+    pokeTypeList.append(createTypeItem);
   }
 }
 
