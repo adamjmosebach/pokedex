@@ -24,12 +24,13 @@ footer {
   position: relative;
   height: 65px;
   bottom: 0;
-  background-image: url('https://i.imgur.com/tqkgMty.png');
+  background-image: url('https://i.imgur.com/Kn5ZUcF.png');
   background-position: bottom;
   background-size: cover;
   color: yellow;
   width: 100vw;
   align-content: flex-end;
+  opacity: .5;
 }
 #footing {
   position: absolute;
