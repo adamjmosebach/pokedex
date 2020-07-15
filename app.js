@@ -196,10 +196,10 @@ function displayMoves(movesArr, i) {
 async function getData(input) {
   try {
     //Deals with the two pokemon that have periods and spaces
-    if (input == 'mr. mime' || input == 'Mr. Mime' || input == 'mr mime' || input == 'Mr Mime') {
+    if (input == 'mr. mime' || input == 'Mr. Mime' || input == 'mr mime' || input == 'Mr Mime' || input == 'Mr mime' || input == 'Mr. mime') {
       input = 'mr-mime';
     }
-    if (input == 'mime jr' || input == 'Mime Jr' || input == 'mime jr.' || input == 'Mime Jr.') {
+    if (input == 'mime jr' || input == 'Mime Jr' || input == 'mime jr.' || input == 'Mime Jr.' || input == 'Mime jr' || input == 'Mime jr.') {
       input = 'mime-jr';
     }
     //Retrieving general data
