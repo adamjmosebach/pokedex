@@ -196,16 +196,15 @@ function displayMoves(movesArr, i) {
 async function getData(input) {
   try {
     //Deals with the two pokemon that have periods and spaces
-    if (input == 'mr. mime' || input == 'Mr. Mime' || input == 'mr mime' || input == 'Mr Mime' || input == 'Mr mime' || input == 'Mr. mime') {
+    if (input == 'mr. mime' || input == 'mr mime') {
       input = 'mr-mime';
     }
-    if (input == 'mime jr' || input == 'Mime Jr' || input == 'mime jr.' || input == 'Mime Jr.' || input == 'Mime jr' || input == 'Mime jr.') {
+    if (input == 'mime jr' || input == 'mime jr.') {
       input = 'mime-jr';
     }
     //Retrieving general data
     const url = `https://pokeapi.co/api/v2/pokemon/${input}`
     const pokeObj = await axios.get(url);
-    console.log(pokeObj);
     const pokeData = pokeObj.data;
     displayData(pokeData);
   }
@@ -261,7 +260,8 @@ function removeData() {
 form.addEventListener('submit', (e) => {
   e.preventDefault();
   removeData();
-  getData(userInput.value);
+  userInputValue = userInput.value.toLowerCase();
+  getData(userInputValue);
   //Reset input box
   userInput.value = '';
 })
