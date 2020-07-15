@@ -1,4 +1,6 @@
-//Some global variables 
+// window.onload = () => document.querySelector('#theme').play();
+
+//Some global variables
 const userInput = document.querySelector('#nameNum');
 const form = document.querySelector('#nameNumSelect')
 
@@ -251,6 +253,7 @@ function removeData() {
 //Event listener for form
 form.addEventListener('submit', (e) => {
   e.preventDefault();
+  document.querySelector('#theme').play();
   removeData();
   getData(userInput.value);
 })

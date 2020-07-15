@@ -1,13 +1,16 @@
+
+
 header {
   background-image: url('https://i.imgur.com/DVHRUkU.png');
   height: 65px;
   background-size: cover;
   text-align: center;
   width: 100vw;
+  min-width: 235px;
 } 
 #heading {
   font-family: 'Stalinist One', cursive;
-  text-shadow: 0 0 15px red;
+  text-shadow: 0 0 15px black;
   color: white;
 }
 body {
@@ -27,10 +30,10 @@ footer {
   background-image: url('https://i.imgur.com/Kn5ZUcF.png');
   background-position: bottom;
   background-size: cover;
-  color: yellow;
   width: 100vw;
   align-content: flex-end;
   opacity: .5;
+  min-width: 235px;
 }
 #footing {
   position: absolute;
@@ -124,3 +127,24 @@ form {
   margin: 0 auto;
   text-align: center;
 }
+
+@media screen and (max-width: 700px) {
+  header {
+    font-size: 14px;
+    background-image: url('https://i.imgur.com/vX6FBWt.png');
+    background-position: center;
+    height: 45px;
+  }
+  footer {
+    font-size: 10px;
+    background-image: url('https://i.imgur.com/LrA8Ckk.png');
+    background-position: center;
+    height: 45px;
+  }
+} /* end media query */
+
+@media screen and (max-width: 330px) {
+  #heading {
+    font-size: 10px;
+  }
+} 
