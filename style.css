@@ -1,5 +1,11 @@
-
-
+#openingPage {
+  position: absolute;
+  top: 0;
+  width: 100vw;
+  z-index: 5;
+  background-color: white;
+  min-width: 235px;
+}
 header {
   background-image: url('https://i.imgur.com/DVHRUkU.png');
   height: 65px;
