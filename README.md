@@ -150,7 +150,7 @@ https://wireframe.cc/uMmnp
 |July 13| Project Approval | Complete
 |July 13| Groundwork HTML and CSS / Retrieving data from API | Complete
 |July 14| Working with API data / Laying data out on screen / Begin looking at Good-Weak data | Complete
-|July 15| Finish working with Good-Weak data / Advanced CSS | Incomplete
+|July 15| Finish working with Good-Weak data / Advanced CSS | Complete
 |July 16| Responsive Design / Post - MVPs | Incomplete
 |July 17| Presentations | Incomplete
 
