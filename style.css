@@ -84,6 +84,7 @@ footer {
   box-sizing: border-box;
   width: 430px;
   margin: 20px 15px 35px 15px;
+  border-radius: 5px;
 }
 h1 {
   display: inline;
