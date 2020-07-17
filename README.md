@@ -173,7 +173,7 @@ My matrix can be foundn at: https://i.imgur.com/dRo8X5Z.png
 | *Coverphoto/Removing Cover Photo | L | 2.5 hrs | 3 hrs | 3 hrs |
 | *Music on opening page | L | 2 hrs | 1.5 hrs | 1.5 hrs |
 | *Personality Test | L | 7 hrs | 0 | 0 |
-| Select by Type & Color together | 0 | 9 hrs | 9 hrs |
+| Select by Type & Color together | L | 0 | 9 hrs | 9 hrs |
 | Total | H | 34.5 hrs| 35 hrs | 35 hrs |
  * (* deonotes Post-MVP)
 
