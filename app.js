@@ -35,6 +35,7 @@ async function getData(input) {
     const pokeData = pokeObj.data;
     displayData(pokeData);
   }
+  //If pokémon is not recognized
   catch (err) {
     console.log('My error is: ' + err);
     //Remove previous style
@@ -101,7 +102,7 @@ function displayData(pokeData) {
   const movesSection = document.querySelector('#movesSection');
   movesSection.append(movesHeader, movesList);
 
-  //Display moveset
+  //Display moveset by calling a function
   if (movesArr.length < 5) {
     for (let i = 0; i < movesArr.length; i++) {
       displayMoves(movesArr, i);
@@ -157,7 +158,7 @@ function displayData(pokeData) {
     weakDisplay.classList.toggle('displayHidden');
   });
 
-  //Display: Type(s) / Good against / Weak against
+  //Calls functions to handle good and weak against sections
   const typesArr = pokeData.types;
   for (let i = 0; i < typesArr.length; i++) {
     const pokeType = typesArr[i].type.name;
@@ -169,7 +170,7 @@ function displayData(pokeData) {
   }
 }
 
-//Finds what each type this pokemon is and sets the stage
+//Finds what type(s) this pokemon is and sets the stage
 async function goodWeakOutcomes(pokeType) {
   try {
     const typesObj = await axios.get('https://pokeapi.co/api/v2/type');
@@ -285,10 +286,14 @@ function removeData() {
 }
 
 
+//Event listener for the Narrow-Down button
+const narrowButton = document.querySelector('#narrowButton');
+narrowButton.addEventListener('click', listTypes);
+
 //Selecting the narrow-down section
 const narrowDown = document.querySelector('#narrowDown');
 
-//Provides type choices
+//Provides type choices, if not there already
 async function listTypes(e) {
   e.preventDefault();
   removeData();
@@ -424,7 +429,3 @@ function combineChoices(correctTypeArr, correctColorArr) {
     bothList.append(noneMatched);
   }
 }
-
-//Event listener for the Narrow-Down button
-const narrowButton = document.querySelector('#narrowButton');
-narrowButton.addEventListener('click', listTypes);
