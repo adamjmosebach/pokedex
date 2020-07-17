@@ -30,7 +30,7 @@ async function getData(input) {
         input = 'mime-jr';
       }
     //Retrieving general data
-    const url = `https://pokeapi.co/api/v2/pokemon/${input}`
+    const url = `https://cors-anywhere.herokuapp.com/https://pokeapi.co/api/v2/pokemon/${input}`
     const pokeObj = await axios.get(url);
     const pokeData = pokeObj.data;
     displayData(pokeData);
@@ -50,7 +50,7 @@ async function getData(input) {
     const errImg = document.createElement('img');
     errImg.classList = 'errorFound';
     errImg.id = 'errorBall';
-    errImg.src = 'https://i.imgur.com/OuhHR94.png';
+    errImg.src = 'https://cors-anywhere.herokuapp.com/https://i.imgur.com/OuhHR94.png';
     display.append(errorDivCreate);
     const errorDiv = document.querySelector('#errorDiv');
     errorDiv.append(errMessage, errImg);
@@ -86,7 +86,7 @@ function displayData(pokeData) {
 
   //More stage setting, including image
   const pokeImg = document.createElement('img');
-  pokeImg.src = `https://pokeres.bastionbot.org/images/pokemon/${pokeData.id}.png`;
+  pokeImg.src = `https://cors-anywhere.herokuapp.com/https://pokeres.bastionbot.org/images/pokemon/${pokeData.id}.png`;
   pokeImg.classList = 'pokePic';
   const movesHeader = document.createElement('h3');
   movesHeader.innerText = `Here are some of ${pokeCapital}'s popular moves:`
@@ -173,7 +173,7 @@ function displayData(pokeData) {
 //Finds what type(s) this pokemon is and sets the stage
 async function goodWeakOutcomes(pokeType) {
   try {
-    const typesObj = await axios.get('https://pokeapi.co/api/v2/type');
+    const typesObj = await axios.get('https://cors-anywhere.herokuapp.com/https://pokeapi.co/api/v2/type');
     const typeDataArr = typesObj.data.results;
     for (let i = 0; i < typeDataArr.length; i++) {
       if (typeDataArr[i].name === pokeType) {
@@ -332,7 +332,7 @@ async function setsColorChoices() {
   dropdownColorCreate.onchange = gatherValues;
   narrowDown.append(dropdownColorCreate);
   try {
-    const pokeColorApiObj = await axios.get('https://pokeapi.co/api/v2/pokemon-color/');
+    const pokeColorApiObj = await axios.get('https://cors-anywhere.herokuapp.com/https://pokeapi.co/api/v2/pokemon-color/');
     const colorArr = pokeColorApiObj.data.results;
     const dropdownColorOptions = document.querySelector('#colorSelect');
     for (let i = 0; i < colorArr.length; i++) {
