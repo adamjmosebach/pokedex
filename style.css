@@ -27,6 +27,7 @@ main {
   display: flex;
   flex-flow: row wrap;
   justify-content: flex-start;
+  margin-right: 0;
 } 
 footer {
   position: relative;
@@ -60,6 +61,7 @@ footer {
   padding: 15px;
   display: flex;
   flex-direction: column;
+  flex-shrink: 0.5;
 }
 #goodWeak {
   width: 50%vw;
