@@ -86,7 +86,7 @@ function displayData(pokeData) {
 
   //More stage setting, including image
   const pokeImg = document.createElement('img');
-  pokeImg.src = `https://cors-anywhere.herokuapp.com/https://pokeres.bastionbot.org/images/pokemon/${pokeData.id}.png`;
+  pokeImg.src = `https://pokeres.bastionbot.org/images/pokemon/${pokeData.id}.png`;
   pokeImg.classList = 'pokePic';
   const movesHeader = document.createElement('h3');
   movesHeader.innerText = `Here are some of ${pokeCapital}'s popular moves:`
