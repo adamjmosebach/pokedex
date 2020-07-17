@@ -152,7 +152,7 @@ https://wireframe.cc/uMmnp
 |July 14| Working with API data / Laying data out on screen / Begin looking at Good-Weak data | Complete
 |July 15| Finish working with Good-Weak data / Advanced CSS | Complete
 |July 16| Responsive Design / Post - MVPs | Complete
-|July 17| Presentations | Incomplete
+|July 17| Presentations | Complete
 
 ## Priority Matrix
 
