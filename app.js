@@ -50,7 +50,7 @@ async function getData(input) {
     const errImg = document.createElement('img');
     errImg.classList = 'errorFound';
     errImg.id = 'errorBall';
-    errImg.src = 'https://cors-anywhere.herokuapp.com/https://i.imgur.com/OuhHR94.png';
+    errImg.src = 'https://i.imgur.com/OuhHR94.png';
     display.append(errorDivCreate);
     const errorDiv = document.querySelector('#errorDiv');
     errorDiv.append(errMessage, errImg);
