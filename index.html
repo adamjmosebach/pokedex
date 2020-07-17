@@ -10,18 +10,22 @@
   <script defer src='app.js'></script>
   <title>Pokédex</title>
 </head>
- 
+
 <body>
   <audio src='https://www.mboxdrive.com/pokemon-music-fade.mp3' id='theme'></audio>
+  <img src='https://i.imgur.com/vJk4dxq.png' id='openingPage'>
   <header>
     <span id='heading'>Welcome to the Wonderful World of Pokémon!</span>
   </header><br>
-  <img src='https://i.imgur.com/vJk4dxq.png' id='openingPage'>
   <form id='nameNumSelect'>
     <label for='nameNum'>Name or Number of a Pokémon:</label><br>
     <input type='text' id='nameNum'>
     <input type='submit' id='submitter'>
   </form>
+  <div id='allTheNarrowing'>
+    <div id='narrowButton'>Narrow It Down</div>
+    <div id='narrowDown'></div>
+  </div>
   <main>
     <div id='leftPanel'>
       <div id='displayHeader'></div>

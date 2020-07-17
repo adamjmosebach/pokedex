@@ -1,8 +1,13 @@
 //Some global variables
 const userInput = document.querySelector('#nameNum');
-const form = document.querySelector('#nameNumSelect')
+const nameNumForm = document.querySelector('#nameNumSelect')
 
 function displayData(pokeData) {
+
+  //If narrow-down selectors are present, remove them
+  while (document.querySelector('#narrowDown').lastChild) {
+    document.querySelector('#narrowDown').lastChild.remove();
+  }
 
   //Display main information & image
   const card = document.querySelector('#leftPanel');
@@ -212,7 +217,7 @@ async function getData(input) {
     console.log('My error is: ' + err);
     //Remove previous style
     const display = document.querySelector('#leftPanel');
-    display.classList.toggle('pokeCard',false);
+    display.classList.toggle('pokeCard', false);
     //Display error message if pokemon not found
     const errorDivCreate = document.createElement('div');
     errorDivCreate.id = 'errorDiv';
@@ -254,17 +259,20 @@ function removeData() {
   if (document.querySelector('#errorDiv')) {
     document.querySelector('#errorDiv').remove();
   }
+  if (document.querySelector('#bothResult')) {
+    document.querySelector('#bothResult').remove();
+  }
 }
 
 //Event listener for form
-form.addEventListener('submit', (e) => {
+nameNumForm.addEventListener('submit', (e) => {
   e.preventDefault();
   removeData();
   userInputValue = userInput.value.toLowerCase();
   getData(userInputValue);
   //Reset input box
   userInput.value = '';
-})
+});
 
 //Opening pokéball - music
 const ball = document.querySelector('#openingPage');
@@ -272,3 +280,146 @@ ball.addEventListener('click', () => {
   document.querySelector('#theme').play()
   ball.classList = 'displayHidden';
 });
+
+//Selecting the narrow-down section
+const narrowDown = document.querySelector('#narrowDown');
+
+//Provides type choices
+async function listTypes(e) {
+  e.preventDefault();
+  removeData();
+  document.querySelector('#leftPanel').classList.remove('pokeCard');
+  if (!document.querySelector('#typeSelect')) {
+    const dropdownTypeCreate = document.createElement('select');
+    dropdownTypeCreate.id = 'typeSelect';
+    dropdownTypeCreate.onchange = setsColorChoices;
+    const br = document.createElement('br');
+    narrowDown.append(br, dropdownTypeCreate);
+    try {
+      const pokeTypeApiObj = await axios.get('http://pokeapi.co/api/v2/type/');
+      const typeArr = pokeTypeApiObj.data.results;
+      const dropdownTypeOptions = document.querySelector('#typeSelect');
+      for (let i = 0; i < typeArr.length; i++) {
+        const theType = typeArr[i].name;
+        const typeOption = document.createElement('option');
+        typeOption.value = theType;
+        typeOption.text = `${theType}`;
+        dropdownTypeOptions.append(typeOption);
+      }
+    }
+    catch (err) {
+      console.log(err);
+    }
+  }
+}
+
+//Provides color choices
+async function setsColorChoices() {
+  if (document.querySelector('#colorSelect')) {
+    document.querySelector('#colorSelect').remove();
+  }
+  const dropdownColorCreate = document.createElement('select');
+  dropdownColorCreate.id = 'colorSelect';
+  dropdownColorCreate.onchange = gatherValues;
+  narrowDown.append(dropdownColorCreate);
+  try {
+    const pokeColorApiObj = await axios.get('https://pokeapi.co/api/v2/pokemon-color/');
+    const colorArr = pokeColorApiObj.data.results;
+    const dropdownColorOptions = document.querySelector('#colorSelect');
+    for (let i = 0; i < colorArr.length; i++) {
+      const theColor = colorArr[i].name;
+      const colorOption = document.createElement('option');
+      colorOption.value = theColor;
+      colorOption.text = `${theColor}`;
+      dropdownColorOptions.append(colorOption);
+    }
+  }
+  catch (err) {
+    console.log(err);
+  }
+}
+
+//Some globals
+let correctTypeArr = [];
+let correctColorArr = [];
+
+//Creates the type and color arrays and passes values to the match functions
+function gatherValues() {
+  correctTypeArr = [];
+  correctColorArr = [];
+  const selectedType = document.querySelector('#typeSelect').value;
+  const selectedColor = document.querySelector('#colorSelect').value;
+  if (document.querySelector('#bothResult')) {
+    document.querySelector('#bothResult').remove(); ///////////////////////
+  }
+  getMatchesForType(selectedType, selectedColor);
+}
+
+//Adds names of those pokémon matching the type selected to an array
+async function getMatchesForType(selectedType, selectedColor) {
+  try {
+    const pokeTypeApiObj = await axios.get(`http://pokeapi.co/api/v2/type/${selectedType}/`);
+    const typeArr = pokeTypeApiObj.data.pokemon;
+    for (let i = 0; i < typeArr.length; i++) {
+      const typePoke = typeArr[i].pokemon;
+      correctTypeArr.push(`${typePoke.name}`);
+    }
+    getMatchesForColor(selectedColor, correctTypeArr);
+  }
+  catch (err) {
+    console.log(err);
+  }
+}
+
+//Adds names of those pokémon matching the color selected to an array
+async function getMatchesForColor(selectedColor, correctTypeArr) {
+  try {
+    const pokeColorApiObj = await axios.get(`http://pokeapi.co/api/v2/pokemon-color/${selectedColor}/`);
+    const colorArr = pokeColorApiObj.data.pokemon_species;
+    for (let i = 0; i < colorArr.length; i++) {
+      const colorPoke = colorArr[i].name;
+      correctColorArr.push(`${colorPoke}`);
+    }
+    combineChoices(correctTypeArr, correctColorArr);
+  }
+  catch (err) {
+    console.log(err);
+  }
+}
+
+//Compare and list those that fit both criterea & make each clickable
+function combineChoices(correctTypeArr, correctColorArr) {
+  const bothResultDivCreate = document.createElement('div');
+  bothResultDivCreate.id = 'bothResult';
+  document.querySelector('main').append(bothResultDivCreate);
+  const bothResult = document.querySelector('#bothResult');
+  const bothListHeading = document.createElement('p');
+  bothListHeading.innerText = 'Those with both your selected type and color:';
+  const bothListCreate = document.createElement('ul');
+  bothListCreate.id = 'bothList';
+  bothResult.append(bothListHeading, bothListCreate);
+  const bothList = document.querySelector('#bothList');
+  for (let i = 0; i < correctColorArr.length; i++) {
+    for (let j = 0; j < correctTypeArr.length; j++) {
+      if (correctColorArr[i] === correctTypeArr[j]) {
+        const bothListItem = document.createElement('li');
+        bothListItem.textContent = correctColorArr[i];
+        bothListItem.addEventListener('click', () => {
+          removeData();
+          getData(correctColorArr[i])
+        });
+        bothList.append(bothListItem);
+      }
+    }
+  }
+  if (!bothList.lastChild) {
+    const noneMatched = document.createElement('p');
+    noneMatched.id = 'noneMatched';
+    noneMatched.innerText = 'Unfortunately no Pokémon matched your search criterea';
+    bothList.append(noneMatched);
+  }
+}
+
+//Event listener for the Narrow-Down button
+const narrowButton = document.querySelector('#narrowButton');
+narrowButton.addEventListener('click', listTypes);

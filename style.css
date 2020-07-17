@@ -128,9 +128,46 @@ h3 {
 .battleButton:hover {
   cursor: pointer;
 }
-form {
+#allTheNarrowing {
+  display: inline-flex;
+  flex-direction: column;
+  float: right;
+  margin-right: 7px;
+}
+#nameNumSelect {
   margin: 0 auto;
   text-align: center;
+  display: inline;
+}
+button {
+  display: inline;
+  float: right;
+}
+#narrowDown {
+  display: inline-flex;
+  float: right;
+  flex-direction: column;
+
+}
+#narrowButton {
+  background-color: brown;
+  color: aqua;
+  display: inline;
+  float: right;
+  padding: 3px;
+}
+#narrowButton:hover {
+  cursor: pointer;
+}
+#noneMatched {
+  background-color: yellow;
+}
+#bothList li:hover {
+  cursor: pointer;
+  color: red
+}
+#colorSelect {
+  margin-top: 5px;
 }
 
 @media screen and (max-width: 700px) {
@@ -148,8 +185,24 @@ form {
   }
 } /* end media query */
 
-@media screen and (max-width: 330px) {
+@media screen and (max-width: 350px) {
   #heading {
     font-size: 10px;
+  }
+  #colorSelect,
+  #typeSelect {
+    margin: 1px;
+  }
+  #narrowDown {
+    height: 102px;
+  }
+  #leftPanel {
+    padding-bottom: 50px;
+  }
+  #narrowButton {
+    margin-top: 5px;
+  }
+  #nameNum {
+    display: block;
   }
 } 

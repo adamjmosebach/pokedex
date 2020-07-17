@@ -151,7 +151,7 @@ https://wireframe.cc/uMmnp
 |July 13| Groundwork HTML and CSS / Retrieving data from API | Complete
 |July 14| Working with API data / Laying data out on screen / Begin looking at Good-Weak data | Complete
 |July 15| Finish working with Good-Weak data / Advanced CSS | Complete
-|July 16| Responsive Design / Post - MVPs | Incomplete
+|July 16| Responsive Design / Post - MVPs | Complete
 |July 17| Presentations | Incomplete
 
 ## Priority Matrix
@@ -162,18 +162,19 @@ My matrix can be foundn at: https://i.imgur.com/dRo8X5Z.png
 
 | Component | Priority | Estimated Time | Time Invested | Actual Time |
 | --- | :---: |  :---: | :---: | :---: |
-| Basic HTMl | H | 30 mins | 0 | 0 |
-| Adding Basic CSS | L | 2 hrs| 0 | 0 |
-| Accessing API based on input | H | 1.5 hrs | 0 | 0 |
-| Rendering API data | H | 4 hrs | 0| 0 |
-| Getting Good-Weak buttons to render data | H | 4 hrs | 0 | 0 |
-| Advanced CSS | M | 4 hrs | 0 | 0 |
-| Responsive Design | M | 4 hrs | 0 | 0 |
+| Basic HTMl | H | 30 mins | 30 mins | 30 mins |
+| Adding Basic CSS | L | 2 hrs| 1.5 hrs | 1.5 hrs |
+| Accessing API based on input | H | 1.5 hrs | 1 hr | 1 hr |
+| Rendering API data | H | 4 hrs | 4 hrs | 4 hrs |
+| Getting Good-Weak buttons to render data | H | 4 hrs | 5 hrs | 5 hrs |
+| Advanced CSS | M | 6 hrs | 6 hrs | 6 hrs |
+| Responsive Design | M | 4 hrs | 3.5 hrs | 3.5 hrs |
 | *Select by type | L | 3 hrs | 0 | 0 |
-| *Coverphoto/Removing Cover Photo | L | 2.5 hrs | 0 | 0 |
-| *Music on opening page | L | 2 hrs | 0 | 0 |
+| *Coverphoto/Removing Cover Photo | L | 2.5 hrs | 3 hrs | 3 hrs |
+| *Music on opening page | L | 2 hrs | 1.5 hrs | 1.5 hrs |
 | *Personality Test | L | 7 hrs | 0 | 0 |
-| Total | H | 34.5 hrs|0 |0 |
+| Select by Type & Color together | 0 | 9 hrs | 9 hrs |
+| Total | H | 34.5 hrs| 35 hrs | 35 hrs |
  * (* deonotes Post-MVP)
 
 
@@ -182,8 +183,40 @@ My matrix can be foundn at: https://i.imgur.com/dRo8X5Z.png
 Use this section to include a brief code snippet of functionality that you are proud of and a brief description.  
 
 ```
-Looking forward to finding some great snippet to put here
+//Provides type choices
+async function listTypes(e) {
+  e.preventDefault();
+  removeData();
+  document.querySelector('#leftPanel').classList.remove('pokeCard');
+  if (!document.querySelector('#typeSelect')) {
+    const dropdownTypeCreate = document.createElement('select');
+    dropdownTypeCreate.id = 'typeSelect';
+    dropdownTypeCreate.onchange = setsColorChoices;
+    const br = document.createElement('br');
+    narrowDown.append(br, dropdownTypeCreate);
+    try {
+      const pokeTypeApiObj = await axios.get('http://pokeapi.co/api/v2/type/');
+      const typeArr = pokeTypeApiObj.data.results;
+      const dropdownTypeOptions = document.querySelector('#typeSelect');
+      for (let i = 0; i < typeArr.length; i++) {
+        const theType = typeArr[i].name;
+        const typeOption = document.createElement('option');
+        typeOption.value = theType;
+        typeOption.text = `${theType}`;
+        dropdownTypeOptions.append(typeOption);
+      }
+    }
+    catch (err) {
+      console.log(err);
+    }
+  }
+}
 ```
 
 ## Change Log
- - Since the first API with most of the data did not have images, my thought was to loop over a second API to find the entered pokemon's name as a key in the object, then correlate that property with another key-value: an image-url. Instead, I used a link to a site that contained various pokemon images by number. I thought looping over a second API would slow the app's runtime considerably as oppsed to the way I ended up doing it.
+
+ * Since the first API with most of the data did not have images, my thought was to loop over a second API to find the entered pokemon's name as a key in the object, then correlate that property with another key-value: an image-url. Instead, I used a link to a site that contained various pokemon images by number. I thought looping over a second API would slow the app's runtime considerably as oppsed to the way I ended up doing it.
+
+* Ended up blending two Post-MVPs into one. Instead of doing 1) a personality test, and 2) select by type, I decided to put them together to be able to select by type+color. It then displays a list of pokémon that fit the two criterea. You are then able to click on any pokémon in the list to display its page. It made the site way more functional and versatile.
+
+* Instead of a pokedex as cover image, I decided to create a theme throughout the page by making the opening image a closed pokéball, and the header/footer look like an open pokéball. It should look like you opened the ball and the rest of the page is inside the ball.
