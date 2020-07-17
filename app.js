@@ -305,7 +305,7 @@ async function listTypes(e) {
     const br = document.createElement('br');
     narrowDown.append(br, dropdownTypeCreate);
     try {
-      const pokeTypeApiObj = await axios.get('http://pokeapi.co/api/v2/type/');
+      const pokeTypeApiObj = await axios.get('https://pokeapi.co/api/v2/type/');
       const typeArr = pokeTypeApiObj.data.results;
       const dropdownTypeOptions = document.querySelector('#typeSelect');
       for (let i = 0; i < typeArr.length; i++) {
@@ -367,7 +367,7 @@ function gatherValues() {
 //Adds names of those pokémon matching the type selected to an array
 async function getMatchesForType(selectedType, selectedColor) {
   try {
-    const pokeTypeApiObj = await axios.get(`http://pokeapi.co/api/v2/type/${selectedType}/`);
+    const pokeTypeApiObj = await axios.get(`https://pokeapi.co/api/v2/type/${selectedType}/`);
     const typeArr = pokeTypeApiObj.data.pokemon;
     for (let i = 0; i < typeArr.length; i++) {
       const typePoke = typeArr[i].pokemon;
@@ -383,7 +383,7 @@ async function getMatchesForType(selectedType, selectedColor) {
 //Adds names of those pokémon matching the color selected to an array
 async function getMatchesForColor(selectedColor, correctTypeArr) {
   try {
-    const pokeColorApiObj = await axios.get(`http://pokeapi.co/api/v2/pokemon-color/${selectedColor}/`);
+    const pokeColorApiObj = await axios.get(`https://pokeapi.co/api/v2/pokemon-color/${selectedColor}/`);
     const colorArr = pokeColorApiObj.data.pokemon_species;
     for (let i = 0; i < colorArr.length; i++) {
       const colorPoke = colorArr[i].name;
