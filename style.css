@@ -4,7 +4,6 @@
   width: 100vw;
   z-index: 5;
   background-color: white;
-  min-width: 235px;
 }
 header {
   background-image: url('https://i.imgur.com/DVHRUkU.png');
@@ -12,7 +11,6 @@ header {
   background-size: cover;
   text-align: center;
   width: 97.5vw;
-  min-width: 235px;
 } 
 #heading {
   font-family: 'Stalinist One', cursive;
@@ -40,7 +38,6 @@ footer {
   width: 97.5vw;
   align-content: flex-end;
   opacity: .5;
-  min-width: 235px;
 }
 #footing {
   position: absolute;
@@ -54,7 +51,6 @@ footer {
   background-image: url('https://i.imgur.com/YE619xI.jpg');
   padding: 0;
   border: 5px solid rgb(240, 240, 16);
-  /* position: relative; */
 }
 #errorBall {
   height: 255px;
@@ -68,7 +64,6 @@ footer {
 #goodWeak {
   width: 50%vw;
   padding: 20px;
-  /* border: 2px solid red; */
   margin: 10px;
 }
 #weakButton {
@@ -148,7 +143,6 @@ button {
   display: inline-flex;
   float: right;
   flex-direction: column;
-
 }
 #narrowButton {
   background-color: brown;
@@ -170,6 +164,10 @@ button {
 #colorSelect {
   margin-top: 5px;
 }
+#submitter {
+  background-color: aqua;
+  color: brown;
+}
 
 @media screen and (max-width: 700px) {
   header {
@@ -184,7 +182,7 @@ button {
     background-position: center;
     height: 45px;
   }
-} /* end media query */
+}
 
 @media screen and (max-width: 350px) {
   #heading {

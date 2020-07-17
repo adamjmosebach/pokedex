@@ -1,6 +1,61 @@
+//Opening pokéball - music
+const ball = document.querySelector('#openingPage');
+ball.addEventListener('click', () => {
+  document.querySelector('#theme').play()
+  ball.classList = 'displayHidden';
+});
+
 //Some global variables
 const userInput = document.querySelector('#nameNum');
 const nameNumForm = document.querySelector('#nameNumSelect')
+
+//Event listener for form
+nameNumForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+  removeData();
+  userInputValue = userInput.value.toLowerCase();
+  getData(userInputValue);
+  //Reset input box
+  userInput.value = '';
+});
+
+//Gets general data on selected pokemon
+async function getData(input) {
+  try {
+      //Deals with the two pokemon that have periods and spaces
+      if (input == 'mr. mime' || input == 'mr mime') {
+        input = 'mr-mime';
+      }
+      if (input == 'mime jr' || input == 'mime jr.') {
+        input = 'mime-jr';
+      }
+    //Retrieving general data
+    const url = `https://pokeapi.co/api/v2/pokemon/${input}`
+    const pokeObj = await axios.get(url);
+    const pokeData = pokeObj.data;
+    displayData(pokeData);
+  }
+  catch (err) {
+    console.log('My error is: ' + err);
+    //Remove previous style
+    const display = document.querySelector('#leftPanel');
+    display.classList.toggle('pokeCard', false);
+    //Display error message if pokemon not found
+    const errorDivCreate = document.createElement('div');
+    errorDivCreate.id = 'errorDiv';
+    const errMessage = document.createElement('h1');
+    errMessage.innerText = 'Uh oh, that is not a known Pokémon';
+    errMessage.classList = 'errorFound';
+    const errImg = document.createElement('img');
+    errImg.classList = 'errorFound';
+    errImg.id = 'errorBall';
+    errImg.src = 'https://i.imgur.com/OuhHR94.png';
+    display.append(errorDivCreate);
+    const errorDiv = document.querySelector('#errorDiv');
+    errorDiv.append(errMessage, errImg);
+  }
+}
+
 
 function displayData(pokeData) {
 
@@ -9,7 +64,7 @@ function displayData(pokeData) {
     document.querySelector('#narrowDown').lastChild.remove();
   }
 
-  //Display main information & image
+  //Sets the stage for displaying data
   const card = document.querySelector('#leftPanel');
   card.classList = 'pokeCard';
   const pokeNum = document.createElement('h2');
@@ -19,14 +74,16 @@ function displayData(pokeData) {
   const nameArr = pokeLowerName.split('');
   nameArr[0] = nameArr[0].toUpperCase();
   pokeCapital = nameArr.join('');
-  //Deals with the two pokemon that have dashes-for-spaces in API
-  if (pokeCapital === 'Mr-mime') {
-    pokeCapital = 'Mr. Mime';
-  }
-  if (pokeCapital === 'Mime-jr') {
-    pokeCapital = 'Mime Jr.';
-  }
+    //Deals with the two pokemon that have dashes-for-spaces in API
+    if (pokeCapital === 'Mr-mime') {
+      pokeCapital = 'Mr. Mime';
+    }
+    if (pokeCapital === 'Mime-jr') {
+      pokeCapital = 'Mime Jr.';
+    }
   pokeName.innerText = pokeCapital;
+
+  //More stage setting, including image
   const pokeImg = document.createElement('img');
   pokeImg.src = `https://pokeres.bastionbot.org/images/pokemon/${pokeData.id}.png`;
   pokeImg.classList = 'pokePic';
@@ -197,43 +254,6 @@ function displayMoves(movesArr, i) {
   movesList.appendChild(move);
 }
 
-//Gets general data on selected pokemon
-async function getData(input) {
-  try {
-    //Deals with the two pokemon that have periods and spaces
-    if (input == 'mr. mime' || input == 'mr mime') {
-      input = 'mr-mime';
-    }
-    if (input == 'mime jr' || input == 'mime jr.') {
-      input = 'mime-jr';
-    }
-    //Retrieving general data
-    const url = `https://pokeapi.co/api/v2/pokemon/${input}`
-    const pokeObj = await axios.get(url);
-    const pokeData = pokeObj.data;
-    displayData(pokeData);
-  }
-  catch (err) {
-    console.log('My error is: ' + err);
-    //Remove previous style
-    const display = document.querySelector('#leftPanel');
-    display.classList.toggle('pokeCard', false);
-    //Display error message if pokemon not found
-    const errorDivCreate = document.createElement('div');
-    errorDivCreate.id = 'errorDiv';
-    const errMessage = document.createElement('h1');
-    errMessage.innerText = 'Uh oh, that is not a known Pokémon';
-    errMessage.classList = 'errorFound';
-    const errImg = document.createElement('img');
-    errImg.classList = 'errorFound';
-    errImg.id = 'errorBall';
-    errImg.src = 'https://i.imgur.com/OuhHR94.png';
-    display.append(errorDivCreate);
-    const errorDiv = document.querySelector('#errorDiv');
-    errorDiv.append(errMessage, errImg);
-  }
-}
-
 //Remove previous data from each section
 function removeData() {
   const displayHeader = document.querySelector('#displayHeader');
@@ -264,22 +284,6 @@ function removeData() {
   }
 }
 
-//Event listener for form
-nameNumForm.addEventListener('submit', (e) => {
-  e.preventDefault();
-  removeData();
-  userInputValue = userInput.value.toLowerCase();
-  getData(userInputValue);
-  //Reset input box
-  userInput.value = '';
-});
-
-//Opening pokéball - music
-const ball = document.querySelector('#openingPage');
-ball.addEventListener('click', () => {
-  document.querySelector('#theme').play()
-  ball.classList = 'displayHidden';
-});
 
 //Selecting the narrow-down section
 const narrowDown = document.querySelector('#narrowDown');
@@ -350,7 +354,7 @@ function gatherValues() {
   const selectedType = document.querySelector('#typeSelect').value;
   const selectedColor = document.querySelector('#colorSelect').value;
   if (document.querySelector('#bothResult')) {
-    document.querySelector('#bothResult').remove(); ///////////////////////
+    document.querySelector('#bothResult').remove();
   }
   getMatchesForType(selectedType, selectedColor);
 }
@@ -387,7 +391,7 @@ async function getMatchesForColor(selectedColor, correctTypeArr) {
   }
 }
 
-//Compare and list those that fit both criterea & make each clickable
+//Compare and list those that fit both criteria & make each andswer clickable
 function combineChoices(correctTypeArr, correctColorArr) {
   const bothResultDivCreate = document.createElement('div');
   bothResultDivCreate.id = 'bothResult';
@@ -412,10 +416,11 @@ function combineChoices(correctTypeArr, correctColorArr) {
       }
     }
   }
+  //Error handling if none matched both criteria
   if (!bothList.lastChild) {
     const noneMatched = document.createElement('p');
     noneMatched.id = 'noneMatched';
-    noneMatched.innerText = 'Unfortunately no Pokémon matched your search criterea';
+    noneMatched.innerText = 'Unfortunately no Pokémon matched your search criteria';
     bothList.append(noneMatched);
   }
 }
