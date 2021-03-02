@@ -174,7 +174,9 @@ async function goodWeakOutcomes(pokeType) {
     // const typesObj = await axios.get(
     //   'https://cors-anywhere.herokuapp.com/https://pokeapi.co/api/v2/type'
     // );
-    const typesObj = await axios.get('https://pokeapi.co/api/v2/type');
+    const typesObj = await axios.get(
+      'https://cors-proxy.htmldriven.com/?url=https://pokeapi.co/api/v2/type'
+    );
     const typeDataArr = typesObj.data.results;
     for (let i = 0; i < typeDataArr.length; i++) {
       if (typeDataArr[i].name === pokeType) {
@@ -304,7 +306,9 @@ async function listTypes(e) {
       // const pokeTypeApiObj = await axios.get(
       //   'https://cors-anywhere.herokuapp.com/http://pokeapi.co/api/v2/type/'
       // );
-      const pokeTypeApiObj = await axios.get('http://pokeapi.co/api/v2/type/');
+      const pokeTypeApiObj = await axios.get(
+        'https://cors-proxy.htmldriven.com/?url=http://pokeapi.co/api/v2/type/'
+      );
       const typeArr = pokeTypeApiObj.data.results;
       const dropdownTypeOptions = document.querySelector('#typeSelect');
       for (let i = 0; i < typeArr.length; i++) {
@@ -334,7 +338,7 @@ async function setsColorChoices() {
     //   'https://cors-anywhere.herokuapp.com/https://pokeapi.co/api/v2/pokemon-color/'
     // );
     const pokeColorApiObj = await axios.get(
-      'https://pokeapi.co/api/v2/pokemon-color/'
+      'https://cors-proxy.htmldriven.com/?url=https://pokeapi.co/api/v2/pokemon-color/'
     );
     const colorArr = pokeColorApiObj.data.results;
     const dropdownColorOptions = document.querySelector('#colorSelect');
@@ -373,7 +377,7 @@ async function getMatchesForType(selectedType, selectedColor) {
     //   `https://cors-anywhere.herokuapp.com/http://pokeapi.co/api/v2/type/${selectedType}/`
     // );
     const pokeTypeApiObj = await axios.get(
-      `http://pokeapi.co/api/v2/type/${selectedType}/`
+      `https://cors-proxy.htmldriven.com/?url=http://pokeapi.co/api/v2/type/${selectedType}/`
     );
     const typeArr = pokeTypeApiObj.data.pokemon;
     for (let i = 0; i < typeArr.length; i++) {
@@ -393,7 +397,7 @@ async function getMatchesForColor(selectedColor, correctTypeArr) {
     //   `https://cors-anywhere.herokuapp.com/http://pokeapi.co/api/v2/pokemon-color/${selectedColor}/`
     // );
     const pokeColorApiObj = await axios.get(
-      `http://pokeapi.co/api/v2/pokemon-color/${selectedColor}/`
+      `https://cors-proxy.htmldriven.com/?url=http://pokeapi.co/api/v2/pokemon-color/${selectedColor}/`
     );
     const colorArr = pokeColorApiObj.data.pokemon_species;
     for (let i = 0; i < colorArr.length; i++) {
