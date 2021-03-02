@@ -32,7 +32,8 @@ async function getData(input) {
     //Retrieving general data
     // const url = `https://cors-anywhere.herokuapp.com/https://pokeapi.co/api/v2/pokemon/${input}`
     // const url = `https://cors-proxy.htmldriven.com/?url=https://pokeapi.co/api/v2/pokemon/${input}`;
-    const url = `https://thingproxy.freeboard.io/fetch/https://pokeapi.co/api/v2/pokemon/${input}`;
+    // const url = `https://thingproxy.freeboard.io/fetch/https://pokeapi.co/api/v2/pokemon/${input}`;
+    const url = `https://pokeapi.co/api/v2/pokemon/${input}`;
     const pokeObj = await axios.get(url);
     const pokeData = pokeObj.data;
     displayData(pokeData);
