@@ -1,13 +1,13 @@
 //Opening pokéball - music
 const ball = document.querySelector('#openingPage');
 ball.addEventListener('click', () => {
-  document.querySelector('#theme').play()
+  document.querySelector('#theme').play();
   ball.classList = 'displayHidden';
 });
 
 //Some global variables
 const userInput = document.querySelector('#nameNum');
-const nameNumForm = document.querySelector('#nameNumSelect')
+const nameNumForm = document.querySelector('#nameNumSelect');
 
 //Event listener for form
 nameNumForm.addEventListener('submit', (e) => {
@@ -22,21 +22,23 @@ nameNumForm.addEventListener('submit', (e) => {
 //Gets general data on selected pokemon
 async function getData(input) {
   try {
-      //Deals with the two pokemon that have periods and spaces
-      if (input == 'mr. mime' || input == 'mr mime') {
-        input = 'mr-mime';
-      }
-      if (input == 'mime jr' || input == 'mime jr.') {
-        input = 'mime-jr';
-      }
+    //Deals with the two pokemon that have periods and spaces
+    if (input == 'mr. mime' || input == 'mr mime') {
+      input = 'mr-mime';
+    }
+    if (input == 'mime jr' || input == 'mime jr.') {
+      input = 'mime-jr';
+    }
     //Retrieving general data
-    const url = `https://cors-anywhere.herokuapp.com/https://pokeapi.co/api/v2/pokemon/${input}`
+    // const url = `https://cors-anywhere.herokuapp.com/https://pokeapi.co/api/v2/pokemon/${input}`
+    // const url = `https://cors-proxy.htmldriven.com/?url=https://pokeapi.co/api/v2/pokemon/${input}`;
+    // const url = `https://thingproxy.freeboard.io/fetch/https://pokeapi.co/api/v2/pokemon/${input}`;
+    const url = `https://pokeapi.co/api/v2/pokemon/${input}`;
     const pokeObj = await axios.get(url);
     const pokeData = pokeObj.data;
     displayData(pokeData);
-  }
-  //If pokémon is not recognized
-  catch (err) {
+  } catch (err) {
+    //If pokémon is not recognized
     console.log('My error is: ' + err);
     //Remove previous style
     const display = document.querySelector('#leftPanel');
@@ -57,9 +59,7 @@ async function getData(input) {
   }
 }
 
-
 function displayData(pokeData) {
-
   //If narrow-down selectors are present, remove them
   while (document.querySelector('#narrowDown').lastChild) {
     document.querySelector('#narrowDown').lastChild.remove();
@@ -75,13 +75,13 @@ function displayData(pokeData) {
   const nameArr = pokeLowerName.split('');
   nameArr[0] = nameArr[0].toUpperCase();
   pokeCapital = nameArr.join('');
-    //Deals with the two pokemon that have dashes-for-spaces in API
-    if (pokeCapital === 'Mr-mime') {
-      pokeCapital = 'Mr. Mime';
-    }
-    if (pokeCapital === 'Mime-jr') {
-      pokeCapital = 'Mime Jr.';
-    }
+  //Deals with the two pokemon that have dashes-for-spaces in API
+  if (pokeCapital === 'Mr-mime') {
+    pokeCapital = 'Mr. Mime';
+  }
+  if (pokeCapital === 'Mime-jr') {
+    pokeCapital = 'Mime Jr.';
+  }
   pokeName.innerText = pokeCapital;
 
   //More stage setting, including image
@@ -89,7 +89,7 @@ function displayData(pokeData) {
   pokeImg.src = `https://pokeres.bastionbot.org/images/pokemon/${pokeData.id}.png`;
   pokeImg.classList = 'pokePic';
   const movesHeader = document.createElement('h3');
-  movesHeader.innerText = `Here are some of ${pokeCapital}'s popular moves:`
+  movesHeader.innerText = `Here are some of ${pokeCapital}'s popular moves:`;
   const movesArr = pokeData.moves;
   const movesList = document.createElement('ul');
   movesList.id = 'movesList';
@@ -173,11 +173,16 @@ function displayData(pokeData) {
 //Finds what type(s) this pokemon is and sets the stage
 async function goodWeakOutcomes(pokeType) {
   try {
-    const typesObj = await axios.get('https://cors-anywhere.herokuapp.com/https://pokeapi.co/api/v2/type');
+    // const typesObj = await axios.get(
+    //   'https://cors-anywhere.herokuapp.com/https://pokeapi.co/api/v2/type'
+    // );
+    // const typesObj = await axios.get(
+    //   'https://cors-proxy.htmldriven.com/?url=https://pokeapi.co/api/v2/type'
+    // );
+    const typesObj = await axios.get('https://pokeapi.co/api/v2/type');
     const typeDataArr = typesObj.data.results;
     for (let i = 0; i < typeDataArr.length; i++) {
       if (typeDataArr[i].name === pokeType) {
-
         //Sets up 'Good Against' section
         const bestAgainstHeader = document.createElement('h4');
         bestAgainstHeader.innerText = `${pokeType} types are best against:`;
@@ -199,8 +204,7 @@ async function goodWeakOutcomes(pokeType) {
         getTypeData(typeUrl, pokeType);
       }
     }
-  }
-  catch (err) {
+  } catch (err) {
     console.log(`My error is ${err}`);
   }
 }
@@ -238,9 +242,7 @@ async function getTypeData(typeUrl, pokeType) {
       const weakestList = document.querySelector(`#weakAgainst${pokeType}`);
       weakestList.append(weakestAgainstItem);
     }
-
-  }
-  catch (err) {
+  } catch (err) {
     console.log(`My error is: ${err}`);
   }
 }
@@ -259,23 +261,23 @@ function displayMoves(movesArr, i) {
 function removeData() {
   const displayHeader = document.querySelector('#displayHeader');
   while (displayHeader.lastChild) {
-    displayHeader.lastChild.remove()
+    displayHeader.lastChild.remove();
   }
   const picSection = document.querySelector('#picSection');
   while (picSection.lastChild) {
-    picSection.lastChild.remove()
+    picSection.lastChild.remove();
   }
   const movesSection = document.querySelector('#movesSection');
   while (movesSection.lastChild) {
-    movesSection.lastChild.remove()
+    movesSection.lastChild.remove();
   }
   const typesDiv = document.querySelector('#types');
   while (typesDiv.lastChild) {
-    typesDiv.lastChild.remove()
+    typesDiv.lastChild.remove();
   }
   const goodWeak = document.querySelector('#goodWeak');
   while (goodWeak.lastChild) {
-    goodWeak.lastChild.remove()
+    goodWeak.lastChild.remove();
   }
   if (document.querySelector('#errorDiv')) {
     document.querySelector('#errorDiv').remove();
@@ -284,7 +286,6 @@ function removeData() {
     document.querySelector('#bothResult').remove();
   }
 }
-
 
 //Event listener for the Narrow-Down button
 const narrowButton = document.querySelector('#narrowButton');
@@ -305,7 +306,14 @@ async function listTypes(e) {
     const br = document.createElement('br');
     narrowDown.append(br, dropdownTypeCreate);
     try {
-      const pokeTypeApiObj = await axios.get('https://cors-anywhere.herokuapp.com/http://pokeapi.co/api/v2/type/');
+      // const pokeTypeApiObj = await axios.get(
+      //   'https://cors-anywhere.herokuapp.com/http://pokeapi.co/api/v2/type/'
+      // );
+      // const pokeTypeApiObj = await axios.get(
+      //   'https://cors-proxy.htmldriven.com/?url=http://pokeapi.co/api/v2/type/'
+      // );
+      // const pokeTypeApiObj = await axios.get('http://pokeapi.co/api/v2/type/');
+      const pokeTypeApiObj = await axios.get('https://pokeapi.co/api/v2/type/');
       const typeArr = pokeTypeApiObj.data.results;
       const dropdownTypeOptions = document.querySelector('#typeSelect');
       for (let i = 0; i < typeArr.length; i++) {
@@ -315,8 +323,7 @@ async function listTypes(e) {
         typeOption.text = `${theType}`;
         dropdownTypeOptions.append(typeOption);
       }
-    }
-    catch (err) {
+    } catch (err) {
       console.log(err);
     }
   }
@@ -332,7 +339,15 @@ async function setsColorChoices() {
   dropdownColorCreate.onchange = gatherValues;
   narrowDown.append(dropdownColorCreate);
   try {
-    const pokeColorApiObj = await axios.get('https://cors-anywhere.herokuapp.com/https://pokeapi.co/api/v2/pokemon-color/');
+    // const pokeColorApiObj = await axios.get(
+    //   'https://cors-anywhere.herokuapp.com/https://pokeapi.co/api/v2/pokemon-color/'
+    // );
+    // const pokeColorApiObj = await axios.get(
+    //   'https://cors-proxy.htmldriven.com/?url=https://pokeapi.co/api/v2/pokemon-color/'
+    // );
+    const pokeColorApiObj = await axios.get(
+      'https://pokeapi.co/api/v2/pokemon-color/'
+    );
     const colorArr = pokeColorApiObj.data.results;
     const dropdownColorOptions = document.querySelector('#colorSelect');
     for (let i = 0; i < colorArr.length; i++) {
@@ -342,8 +357,7 @@ async function setsColorChoices() {
       colorOption.text = `${theColor}`;
       dropdownColorOptions.append(colorOption);
     }
-  }
-  catch (err) {
+  } catch (err) {
     console.log(err);
   }
 }
@@ -367,15 +381,25 @@ function gatherValues() {
 //Adds names of those pokémon matching the type selected to an array
 async function getMatchesForType(selectedType, selectedColor) {
   try {
-    const pokeTypeApiObj = await axios.get(`https://cors-anywhere.herokuapp.com/http://pokeapi.co/api/v2/type/${selectedType}/`);
+    // const pokeTypeApiObj = await axios.get(
+    //   `https://cors-anywhere.herokuapp.com/http://pokeapi.co/api/v2/type/${selectedType}/`
+    // );
+    // const pokeTypeApiObj = await axios.get(
+    //   `https://cors-proxy.htmldriven.com/?url=http://pokeapi.co/api/v2/type/${selectedType}/`
+    // );
+    // const pokeTypeApiObj = await axios.get(
+    //   `http://pokeapi.co/api/v2/type/${selectedType}/`
+    // );
+    const pokeTypeApiObj = await axios.get(
+      `https://pokeapi.co/api/v2/type/${selectedType}/`
+    );
     const typeArr = pokeTypeApiObj.data.pokemon;
     for (let i = 0; i < typeArr.length; i++) {
       const typePoke = typeArr[i].pokemon;
       correctTypeArr.push(`${typePoke.name}`);
     }
     getMatchesForColor(selectedColor, correctTypeArr);
-  }
-  catch (err) {
+  } catch (err) {
     console.log(err);
   }
 }
@@ -383,15 +407,25 @@ async function getMatchesForType(selectedType, selectedColor) {
 //Adds names of those pokémon matching the color selected to an array
 async function getMatchesForColor(selectedColor, correctTypeArr) {
   try {
-    const pokeColorApiObj = await axios.get(`https://cors-anywhere.herokuapp.com/http://pokeapi.co/api/v2/pokemon-color/${selectedColor}/`);
+    // const pokeColorApiObj = await axios.get(
+    //   `https://cors-anywhere.herokuapp.com/http://pokeapi.co/api/v2/pokemon-color/${selectedColor}/`
+    // );
+    // const pokeColorApiObj = await axios.get(
+    //   `https://cors-proxy.htmldriven.com/?url=http://pokeapi.co/api/v2/pokemon-color/${selectedColor}/`
+    // );
+    // const pokeColorApiObj = await axios.get(
+    //   `http://pokeapi.co/api/v2/pokemon-color/${selectedColor}/`
+    // );
+    const pokeColorApiObj = await axios.get(
+      `https://pokeapi.co/api/v2/pokemon-color/${selectedColor}/`
+    );
     const colorArr = pokeColorApiObj.data.pokemon_species;
     for (let i = 0; i < colorArr.length; i++) {
       const colorPoke = colorArr[i].name;
       correctColorArr.push(`${colorPoke}`);
     }
     combineChoices(correctTypeArr, correctColorArr);
-  }
-  catch (err) {
+  } catch (err) {
     console.log(err);
   }
 }
@@ -415,7 +449,7 @@ function combineChoices(correctTypeArr, correctColorArr) {
         bothListItem.textContent = correctColorArr[i];
         bothListItem.addEventListener('click', () => {
           removeData();
-          getData(correctColorArr[i])
+          getData(correctColorArr[i]);
         });
         bothList.append(bothListItem);
       }
@@ -425,7 +459,8 @@ function combineChoices(correctTypeArr, correctColorArr) {
   if (!bothList.lastChild) {
     const noneMatched = document.createElement('p');
     noneMatched.id = 'noneMatched';
-    noneMatched.innerText = 'Unfortunately no Pokémon matched your search criteria';
+    noneMatched.innerText =
+      'Unfortunately no Pokémon matched your search criteria';
     bothList.append(noneMatched);
   }
 }
