@@ -312,7 +312,8 @@ async function listTypes(e) {
       // const pokeTypeApiObj = await axios.get(
       //   'https://cors-proxy.htmldriven.com/?url=http://pokeapi.co/api/v2/type/'
       // );
-      const pokeTypeApiObj = await axios.get('http://pokeapi.co/api/v2/type/');
+      // const pokeTypeApiObj = await axios.get('http://pokeapi.co/api/v2/type/');
+      const pokeTypeApiObj = await axios.get('https://pokeapi.co/api/v2/type/');
       const typeArr = pokeTypeApiObj.data.results;
       const dropdownTypeOptions = document.querySelector('#typeSelect');
       for (let i = 0; i < typeArr.length; i++) {
@@ -386,8 +387,11 @@ async function getMatchesForType(selectedType, selectedColor) {
     // const pokeTypeApiObj = await axios.get(
     //   `https://cors-proxy.htmldriven.com/?url=http://pokeapi.co/api/v2/type/${selectedType}/`
     // );
+    // const pokeTypeApiObj = await axios.get(
+    //   `http://pokeapi.co/api/v2/type/${selectedType}/`
+    // );
     const pokeTypeApiObj = await axios.get(
-      `http://pokeapi.co/api/v2/type/${selectedType}/`
+      `https://pokeapi.co/api/v2/type/${selectedType}/`
     );
     const typeArr = pokeTypeApiObj.data.pokemon;
     for (let i = 0; i < typeArr.length; i++) {
@@ -409,8 +413,11 @@ async function getMatchesForColor(selectedColor, correctTypeArr) {
     // const pokeColorApiObj = await axios.get(
     //   `https://cors-proxy.htmldriven.com/?url=http://pokeapi.co/api/v2/pokemon-color/${selectedColor}/`
     // );
+    // const pokeColorApiObj = await axios.get(
+    //   `http://pokeapi.co/api/v2/pokemon-color/${selectedColor}/`
+    // );
     const pokeColorApiObj = await axios.get(
-      `http://pokeapi.co/api/v2/pokemon-color/${selectedColor}/`
+      `https://pokeapi.co/api/v2/pokemon-color/${selectedColor}/`
     );
     const colorArr = pokeColorApiObj.data.pokemon_species;
     for (let i = 0; i < colorArr.length; i++) {
