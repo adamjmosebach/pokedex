@@ -86,7 +86,7 @@ function displayData(pokeData) {
 
   //More stage setting, including image
   const pokeImg = document.createElement('img');
-  // pokeImg.src = `astionbot.org/images/pokemon/${pokeData.id}.pnghttps://pokeres.b`;
+  // pokeImg.src = `https://pokeres.bastionbot.org/images/pokemon/${pokeData.id}.png`;
   // pokeImg.src = `https://unpkg.com/pokeapi-sprites@2.0.2/sprites/pokemon/other/dream-world/${pokeData.id}.svg`;
   pokeImg.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokeData.id}.png`;
   pokeImg.classList = 'pokePic';
